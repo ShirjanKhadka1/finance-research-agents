@@ -1,7 +1,7 @@
 # Integration — finance-research-agents
 
 ## Role in the system
-The thinking layer. These 7 agents decide what to research, in what order,
+The thinking layer. These 10 agents decide what to research, in what order,
 and what counts as a trustworthy answer. They do not calculate (that is
 the toolkit) and they do not invent structure (that is the playbook) —
 they call on both.

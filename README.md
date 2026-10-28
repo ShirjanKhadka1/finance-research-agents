@@ -64,6 +64,8 @@ A runbook is a team for one job, in order. See `runbooks/`.
 |---|---|---|
 | [Company deep dive](runbooks/company-deep-dive.md) | Researcher → Forensic → Financial → Valuation → Reality Checker | One company, fully checked, thesis + downside + open questions |
 | [Earnings review](runbooks/earnings-review.md) | Financial → Reality Checker | One quarter, what actually moved, what to ask next |
+| [Portfolio forecast](runbooks/portfolio-forecast.md) | Portfolio & Forecast → Reality Checker | Portfolio, performance, walk-forward forecasting |
+| [Prediction accuracy loop](runbooks/prediction-accuracy-loop.md) | Accuracy Auditor → Reality Checker | Audit the prediction ledger, log failures, demote failing models |
 
 ## 📋 What every agent in this pack does (and refuses to do)
 

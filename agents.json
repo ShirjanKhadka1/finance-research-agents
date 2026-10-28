@@ -82,6 +82,14 @@
         "portfolio-forecast-analyst",
         "reality-checker"
       ]
+    },
+    {
+      "file": "runbooks/prediction-accuracy-loop.md",
+      "slug": "prediction-accuracy-loop",
+      "team": [
+        "accuracy-auditor",
+        "reality-checker"
+      ]
     }
   ],
   "runs_locally": true,
