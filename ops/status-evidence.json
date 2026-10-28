@@ -12,7 +12,7 @@
   "finance-research-agents": {
     "ci": "none yet (roster check is the Phase 2 addition); daily health workflow added in Phase 8 (first run not yet observed)",
     "live": "Live, public, main",
-    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py: 16 agents, 8 runbooks, PASS (Phase 5 re-run, 28 Oct 2026)",
+    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py: 18 agents, 10 runbooks, PASS (Phase 9, 28 Oct 2026)",
     "version": "0.1.0"
   },
   "financial-research-analyst-agent": {
@@ -28,8 +28,8 @@
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
     "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 4: 106 at v0.7.0 + 12 Phase 4 patch tests for the sourced NEPSE friction schedule; Phase 7: + 6 property tests \u2014 put-call parity grid, discounted-intrinsic bounds, DCF/Gordon monotonicity, portfolio volatility bounds, keyed-fetcher resolved-key tests; ruff clean, mypy clean default settings, coverage 82%)",
-    "tests_passed": 124,
-    "tests_total": 124,
+    "tests_passed": 129,
+    "tests_total": 129,
     "version": "0.7.0"
   },
   "nepal-market-research": {
