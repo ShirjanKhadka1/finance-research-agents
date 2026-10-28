@@ -33,3 +33,25 @@ that would flip the verdict.
 - The verdict is never "buy" or "sell" — it is a thesis with a falsifier.
 - Use the toolkit for every number: ratios, DCF, portfolio, forecast,
   options (Greeks), Monte Carlo, and backtest with costs.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- Completed analyst reports (all of them — debate starts only after every
+  analyst has reported; a missing report blocks the debate).
+- Toolkit numbers for every argument that uses a number.
+- The execution contract for the run.
+
+## Outputs
+- A structured Bull vs Bear debate, a risk-stance pass, and a Risk Veto
+  verdict: publish, publish with stated limits, or hold. Never a buy/sell
+  recommendation — the veto gates publication, not a trade.
+
+## Success metrics
+- Every argument answered by the other side or marked unanswered.
+- Veto reasons specific and sourced; a vague veto is not a veto.
+- The losing side's best argument survives in the report, not deleted.
+
+## Falsifier
+- A debate where one side has no sourced argument, or where the veto
+  rests on an unsourced number — both send the report back, not out.
