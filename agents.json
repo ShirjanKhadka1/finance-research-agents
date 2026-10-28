@@ -39,6 +39,11 @@
       "file": "agents/portfolio-forecast-analyst.md",
       "slug": "portfolio-forecast-analyst",
       "specialty": "Portfolio construction, performance, walk-forward forecasting, free API data"
+    },
+    {
+      "file": "agents/debate-analyst.md",
+      "slug": "debate-analyst",
+      "specialty": "Bull vs Bear debate + Risk Veto, toolkit numbers for every argument"
     }
   ],
   "licence": "MIT",

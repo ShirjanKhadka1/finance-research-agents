@@ -53,6 +53,7 @@ using only sources I provide, with every number sourced.
 | 🛡️ [Reality Checker](agents/reality-checker.md) | Review, falsifiers, downside, accuracy audit | Last pass before anything is shared |
 | 🌍 [World Market Researcher](agents/world-market-researcher.md) | Global markets, regimes, cross-border themes | Comparing markets, placing a local story in world context |
 | 📈 [Portfolio & Forecast Analyst](agents/portfolio-forecast-analyst.md) | Portfolio, performance, walk-forward forecasting, free API data | Building a portfolio, judging a model, forecasting honestly |
+| ⚔️ [Debate Analyst](agents/debate-analyst.md) | Bull vs Bear debate + Risk Veto, toolkit numbers for every argument | When a single verdict would be too easy |
 
 ## 🎯 Runbooks — teams that work together
 
@@ -79,6 +80,11 @@ A runbook is a team for one job, in order. See `runbooks/`.
   professional experience or as a completed valuation.
 - Confuse tickers across exchanges (NEPSE BNT ≠ NYSE BNT — exchange always stated).
 - Touch real credentials, real accounts, or non-public data.
+
+## 🆕 v0.4 improvements
+
+- **Debate Analyst (new, 9th agent):** every thesis is argued Bull vs Bear from computed numbers, and the Risk Manager can veto to zero.
+- **Toolkit v0.4 companion:** options, Monte Carlo, costed backtests, CLI, fresh-data fallback chain (no stale data), predictive auto-selection + ensemble, and an autonomous updater that re-runs reports daily with a hash-chained audit log — see [investment-analyst-toolkit](https://github.com/ShirjanKhadka1/investment-analyst-toolkit).
 
 ## 🧰 How this repo is organised (the agency-agents pattern, finance-only)
 
