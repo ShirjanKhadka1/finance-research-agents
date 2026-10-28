@@ -1,0 +1,61 @@
+# Daily programme health check — public output, research only.
+#
+# Schedule: daily at 02:00 UTC = 07:45 NPT. Why this time: the toolkit's
+# scheduled daily update runs at 01:00 UTC, so by 02:00 UTC this job can
+# see whether that run produced public output in reports/daily/ or is
+# STALE / not yet observed. GitHub cron is approximate (minutes late);
+# the report carries its own timestamp, so a late run is visible.
+#
+# What it does: runs ops/health_check.py --live, which checks roster
+# consistency, README counts vs ops/status-evidence.json, latest
+# completed workflow runs, data freshness, ledger publication, internal
+# links, and security-config presence across all 8 programme repos.
+# It commits the report to status/HEALTH.md and, on any FAIL or UNKNOWN,
+# a dated note under status/failures/ (phase, error, repo, retry
+# status, fix attempted). The job FAILS on FAIL or UNKNOWN, so an
+# unproven state is visible red, never silently green.
+#
+# Deliberately absent: email alerts (Gmail connector not connected,
+# recorded blocker) and a Cloudflare cron backup (Cloudflare access
+# unverified, recorded blocker). Failure visibility is this report +
+# the public workflow run log + the failure notes. No email alert is
+# claimed anywhere. Research only: no trades, no spend, no
+# recommendations. No credentials are used or printed.
+#
+# Manual dispatch exists so the first run can be observed on demand.
+name: Daily health check
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run health check (live)
+        run: |
+          python ops/health_check.py --live \
+            --out status/HEALTH.md \
+            --failure-note-dir status/failures || echo "HEALTH_CHECK_EXIT=$?" >> "$GITHUB_ENV"
+      - name: Commit health report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add status
+          git diff --cached --quiet || git commit -m "chore: daily health check [skip ci]"
+          git push
+      - name: Fail the job if the health check did not fully pass
+        if: env.HEALTH_CHECK_EXIT != '' && env.HEALTH_CHECK_EXIT != '0'
+        run: |
+          echo "Health check exit ${HEALTH_CHECK_EXIT}: see status/HEALTH.md and status/failures/."
+          exit 1
