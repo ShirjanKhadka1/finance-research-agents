@@ -50,3 +50,29 @@ list) and a status label (Inputs only / In progress / Completed) at the top.
 > Activate Nepal Market Researcher mode. Research [company, NEPSE ticker]
 > for [fiscal year], using only sources I provide, with every figure sourced.
 > Label the study's status honestly. No recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- The NEPSE company/sector + period, sources by name, and the fiscal calendar
+  (BS/AD) the figures use. Live NEPSE data is CSV-only; no invented feed.
+- The sourced Nepal friction schedule where costs matter (broker slabs, SEBON,
+  DP, CGT, circuit limits, T+2 with broker-58 T+1 override) — never a rate
+  without its source and as-of date.
+- The execution contract for the run.
+
+## Outputs
+- Nepal research with exchange always stated (NEPSE, never a bare ticker),
+  every figure sourced + period, and Nepal-specific frictions stated where
+  they change the reading.
+
+## Success metrics
+- No ticker without its exchange; no Nepal rate without source + as-of date.
+- Intraday described as UPCOMING, never as live, until a formal SEBON/NEPSE
+  announcement with a date exists.
+- Unfinished work labelled Inputs only, never called a valuation.
+
+## Falsifier
+- A Nepal claim that collapses on the friction schedule (a return that
+  ignores CGT/fees, a price move beyond the circuit band treated as normal)
+  — recompute with frictions before publishing.
