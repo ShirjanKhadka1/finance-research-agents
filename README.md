@@ -43,11 +43,19 @@ using only sources I provide, with every number sourced.
 
 ## 🎨 The roster
 
+16 agents. `agents.json` is the machine-readable roster; this table
+mirrors it.
+
 | Agent | Specialty | When to use |
 |---|---|---|
+| 🎛️ [Research Orchestrator](agents/research-orchestrator.md) | Run contract, as-of date, synchronisation, checkpoint/resume, thesis-log settlement | Running any multi-agent runbook, before the first analyst starts |
+| 🔍 [Data Scout](agents/data-scout.md) | Free public data sources, licence/terms, freshness, schema validation | Before any analysis that needs data you do not already hold |
 | 🔍 [Investment Researcher](agents/investment-researcher.md) | Due diligence, thesis, market research | Starting any company study |
-| 📊 [Financial Analyst](agents/financial-analyst.md) | Three-statement analysis, ratios, forecasting drivers | Reading financials, building a model |
+| 📰 [News & Sentiment Analyst](agents/news-sentiment-analyst.md) | News + public sentiment, source + date + stance counts | Inside a deep dive or market study, before the debate step |
 | 🔬 [Forensic Analyst](agents/forensic-analyst.md) | Profit quality, red flags, cash vs profit | Before you trust the numbers |
+| 🧾 [Statement Reconciler](agents/statement-reconciler.md) | Mechanical tie-out: balance sheet, cash flow, equity, segments, comparatives | On every set of statements, before the Financial Analyst starts |
+| 📊 [Financial Analyst](agents/financial-analyst.md) | Three-statement analysis, ratios, forecasting drivers | Reading financials, building a model |
+| 📈 [FP&A Analyst](agents/fpa-analyst.md) | Operating plans, rolling forecasts, driver-decomposed variance analysis | Testing a plan, budget, or forecast against actuals |
 | 💎 [Valuation Analyst](agents/valuation-analyst.md) | DCF, multiples, sanity checks, implied assumptions | Before any target price is discussed |
 | 🇳🇵 [Nepal Market Researcher](agents/nepal-market-researcher.md) | NEPSE, sourced Nepal market research | Nepal-listed companies, with exchange always stated |
 | 🛡️ [Reality Checker](agents/reality-checker.md) | Review, falsifiers, downside, accuracy audit | Last pass before anything is shared |
@@ -55,10 +63,12 @@ using only sources I provide, with every number sourced.
 | 📈 [Portfolio & Forecast Analyst](agents/portfolio-forecast-analyst.md) | Portfolio, performance, walk-forward forecasting, free API data | Building a portfolio, judging a model, forecasting honestly |
 | ⚔️ [Debate Analyst](agents/debate-analyst.md) | Bull vs Bear debate + Risk Veto, toolkit numbers for every argument | When a single verdict would be too easy |
 | 🎯 [Accuracy Auditor](agents/accuracy-auditor.md) | Prediction ledger audit, failure logging, model demotion | After every autonomous run, before any report is shared |
+| 🧩 [Use-Case Generator](agents/use-case-generator.md) | Completed research into killable applied proposals | After a research report exists, never instead of one |
 
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
+7 runbooks.
 
 | Runbook | Team | Job |
 |---|---|---|
@@ -66,6 +76,9 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Earnings review](runbooks/earnings-review.md) | Financial → Reality Checker | One quarter, what actually moved, what to ask next |
 | [Portfolio forecast](runbooks/portfolio-forecast.md) | Portfolio & Forecast → Reality Checker | Portfolio, performance, walk-forward forecasting |
 | [Prediction accuracy loop](runbooks/prediction-accuracy-loop.md) | Accuracy Auditor → Reality Checker | Audit the prediction ledger, log failures, demote failing models |
+| [Data first](runbooks/data-first.md) | Data Scout → Statement Reconciler → Financial → Reality Checker | No analysis on unvalidated, untied data |
+| [Macro to company](runbooks/macro-to-company.md) | World → Nepal → Investment → Reconciler → Financial → Valuation → Reality | Full top-down study, with the Accuracy Auditor ledger rule on forecasts |
+| [Research to use case](runbooks/research-to-use-case.md) | Completed research → Use-Case Generator → Data Scout licence check → Reality Checker | Finished research into killable proposals, killed candidates reported |
 
 ## 📋 What every agent in this pack does (and refuses to do)
 
@@ -110,7 +123,12 @@ Add a new agent, improve an existing one, or share a worked example:
 
 1. One agent = one file in `agents/`, following the format in
    `agents/investment-researcher.md` (frontmatter + identity + workflow +
-   deliverables + rules + example prompt).
+   deliverables + rules + example prompt). New agents also carry two
+   template sections: **Inputs/Outputs** (the handoff contract — what
+   the agent takes in and what it hands on) and **Success metrics**
+   (how "done" is judged). The 10 original agents have not yet been
+   retrofitted with those two sections — that is a follow-up pass,
+   not part of this slice.
 2. Add it to `agents.json` and to the roster table above.
 3. No real company data without a source. No investment recommendations.
 4. Test the install script with `--dry-run` before submitting.

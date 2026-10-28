@@ -1,9 +1,34 @@
 {
   "agents": [
     {
+      "file": "agents/research-orchestrator.md",
+      "slug": "research-orchestrator",
+      "specialty": "Run contract, as-of date, synchronisation, checkpoint/resume, thesis-log settlement"
+    },
+    {
+      "file": "agents/data-scout.md",
+      "slug": "data-scout",
+      "specialty": "Free public data sources, licence/terms, freshness, schema validation"
+    },
+    {
       "file": "agents/investment-researcher.md",
       "slug": "investment-researcher",
       "specialty": "Due diligence, thesis, market research"
+    },
+    {
+      "file": "agents/news-sentiment-analyst.md",
+      "slug": "news-sentiment-analyst",
+      "specialty": "News + public sentiment, source + date + stance counts"
+    },
+    {
+      "file": "agents/forensic-analyst.md",
+      "slug": "forensic-analyst",
+      "specialty": "Profit quality, red flags, cash vs profit"
+    },
+    {
+      "file": "agents/statement-reconciler.md",
+      "slug": "statement-reconciler",
+      "specialty": "Mechanical tie-out: balance sheet, cash flow, equity, segments, comparatives"
     },
     {
       "file": "agents/financial-analyst.md",
@@ -11,9 +36,9 @@
       "specialty": "Three-statement analysis, ratios, DuPont, drivers"
     },
     {
-      "file": "agents/forensic-analyst.md",
-      "slug": "forensic-analyst",
-      "specialty": "Profit quality, red flags, cash vs profit"
+      "file": "agents/fpa-analyst.md",
+      "slug": "fpa-analyst",
+      "specialty": "Operating plans, rolling forecasts, driver-decomposed variance analysis"
     },
     {
       "file": "agents/valuation-analyst.md",
@@ -24,11 +49,6 @@
       "file": "agents/nepal-market-researcher.md",
       "slug": "nepal-market-researcher",
       "specialty": "NEPSE research, sourced, exchange always stated"
-    },
-    {
-      "file": "agents/reality-checker.md",
-      "slug": "reality-checker",
-      "specialty": "Accuracy audit, falsifiers, downside, review"
     },
     {
       "file": "agents/world-market-researcher.md",
@@ -49,6 +69,16 @@
       "file": "agents/accuracy-auditor.md",
       "slug": "accuracy-auditor",
       "specialty": "Prediction ledger audit, failure logging, model demotion"
+    },
+    {
+      "file": "agents/reality-checker.md",
+      "slug": "reality-checker",
+      "specialty": "Accuracy audit, falsifiers, downside, review"
+    },
+    {
+      "file": "agents/use-case-generator.md",
+      "slug": "use-case-generator",
+      "specialty": "Completed research into killable applied proposals"
     }
   ],
   "licence": "MIT",
@@ -88,6 +118,38 @@
       "slug": "prediction-accuracy-loop",
       "team": [
         "accuracy-auditor",
+        "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/data-first.md",
+      "slug": "data-first",
+      "team": [
+        "data-scout",
+        "statement-reconciler",
+        "financial-analyst",
+        "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/macro-to-company.md",
+      "slug": "macro-to-company",
+      "team": [
+        "world-market-researcher",
+        "nepal-market-researcher",
+        "investment-researcher",
+        "statement-reconciler",
+        "financial-analyst",
+        "valuation-analyst",
+        "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/research-to-use-case.md",
+      "slug": "research-to-use-case",
+      "team": [
+        "use-case-generator",
+        "data-scout",
         "reality-checker"
       ]
     }
