@@ -12,25 +12,25 @@
   "finance-research-agents": {
     "ci": "none yet (roster check is the Phase 2 addition)",
     "live": "Live, public, main",
-    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py: 16 agents, 7 runbooks, PASS (implementation re-run, 28 Oct 2026)",
+    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py: 16 agents, 8 runbooks, PASS (Phase 5 re-run, 28 Oct 2026)",
     "version": "0.1.0"
   },
   "financial-research-analyst-agent": {
     "ci": "GitHub Actions Tests, run #1 succeeded 28 Oct 2026",
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 2 re-run)",
-    "tests_passed": 4,
-    "tests_total": 4
+    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 4: 4 original + 42 new tests; flat-RSI bug fixed)",
+    "tests_passed": 46,
+    "tests_total": 46
   },
   "investment-analyst-toolkit": {
     "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026; scheduled-update workflow added in Phase 3 (first run not yet observed)",
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 3: 52 at v0.5.1 + 14 data-layer/GATE 3 tests)",
-    "tests_passed": 66,
-    "tests_total": 66,
-    "version": "0.6.0"
+    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 4: 106 at v0.7.0 + 12 Phase 4 patch tests for the sourced NEPSE friction schedule; patch deploys after Phase 4 verifies, version stays 0.7.0)",
+    "tests_passed": 118,
+    "tests_total": 118,
+    "version": "0.7.0"
   },
   "nepal-market-research": {
     "ci": "none",
@@ -46,8 +46,8 @@
     "ci": "workflow added in Phase 2 (parent .github/workflows/test.yml); runs publicly after deployment",
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026, scanner/tests/ (Phase 2 re-run)",
-    "tests_passed": 40,
-    "tests_total": 40
+    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026, scanner/tests/ (Phase 4: 40 original + 17 signal-label tests)",
+    "tests_passed": 57,
+    "tests_total": 57
   }
 }
