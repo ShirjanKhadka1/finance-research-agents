@@ -46,3 +46,23 @@ real data cites source + period.
 > Activate Financial Analyst mode. Analyse these statements [paste or attach],
 > with ratios, DuPont, and cash-vs-profit, and state the forecast drivers
 > you would use — with sources. No recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- Tied statements (Statement Reconciler passed) for the period in scope, plus
+  the exchange and the reporting basis (BS/AD, consolidated or standalone).
+- The execution contract for the run.
+
+## Outputs
+- Three-statement analysis: ratios, DuPont decomposition, drivers, and trends,
+  each number sourced + period or UNKNOWN, with cash-vs-profit stated plainly.
+
+## Success metrics
+- Every ratio recomputable from the stated inputs; no ratio from an untied figure.
+- Drivers named, not just described; comparatives on the same basis.
+- Limits stated where a method does not fit the company.
+
+## Falsifier
+- A ratio that moves only because of a classification, a one-off, or a
+  restatement — flag it as such instead of reading it as performance.
