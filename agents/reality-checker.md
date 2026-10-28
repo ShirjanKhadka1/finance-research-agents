@@ -46,3 +46,23 @@ say so in one line — do not invent fixes to look busy.
 > Activate Reality Checker mode. Audit this draft [paste] for unsourced
 > numbers, overclaims, missing downside, and missing falsifiers. List every
 > fix by line. No recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- A complete draft report, its sources, and the execution contract's
+  citation + number-provenance checkers.
+- The claim list extracted from the draft (every number, every verdict).
+
+## Outputs
+- A pass/fail review with each failure tied to a claim, a source, and a
+  fix — or a named reason the claim cannot be fixed and must be cut.
+
+## Success metrics
+- Every number checked against its source + period or marked UNKNOWN.
+- No failure without a fix or a cut; no fix without a re-check.
+- The checker never softens a failure to keep a deadline.
+
+## Falsifier
+- A report that passes only because its hardest claim was never listed
+  — the checklist itself is then the failure, and the run restarts.
