@@ -34,3 +34,23 @@ improvement traced to a failure — or the report does not go out.
   selection changes, not that the past is edited.
 - A model that fails repeatedly is demoted, not defended.
 - Research only. No buy/sell recommendation, no trade.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- The prediction ledger (predictions logged BEFORE outcomes), the outcomes
+  as observed, and the model versions that produced them.
+- The execution contract for the run.
+
+## Outputs
+- A ledger audit: accuracy by model with n stated, failures listed as
+  prominently as successes, and demotion decisions for failing models.
+
+## Success metrics
+- n stated on every accuracy figure; pending predictions never counted as wins.
+- Every failure carries its forecast, actual, error, and lesson.
+- Demotion applied by the rule, not by preference for a model.
+
+## Falsifier
+- A model whose accuracy rests on a small n, a cherry-picked period, or
+  predictions logged after the outcome — all three void the figure.
