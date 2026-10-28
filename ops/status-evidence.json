@@ -24,13 +24,13 @@
     "tests_total": 4
   },
   "investment-analyst-toolkit": {
-    "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026",
+    "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026; scheduled-update workflow added in Phase 3 (first run not yet observed)",
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (implementation re-run: 47 baseline + 5 model-comparison)",
-    "tests_passed": 52,
-    "tests_total": 52,
-    "version": "0.5.0"
+    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 3: 52 at v0.5.1 + 14 data-layer/GATE 3 tests)",
+    "tests_passed": 66,
+    "tests_total": 66,
+    "version": "0.6.0"
   },
   "nepal-market-research": {
     "ci": "none",
