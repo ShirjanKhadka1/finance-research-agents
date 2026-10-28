@@ -41,3 +41,23 @@ then a verdict paragraph. No verdict without evidence lines.
 > Activate Forensic Analyst mode. Run the forensic checklist on these
 > statements [paste or attach], flag anything material, and tell me the
 > single document that would resolve the biggest flag.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- Reported statements + notes, cash-flow statement, and any prior-period
+  comparatives, with source + period for each.
+- The execution contract for the run.
+
+## Outputs
+- A profit-quality pass: red flags ranked by evidence strength, cash-vs-profit
+  gaps quantified, and the questions each flag raises for the next analyst.
+
+## Success metrics
+- Every flag tied to a figure or a disclosure, never to a feeling.
+- Flags ranked; a flag with no evidence is listed as a question, not a finding.
+- No accusation: a flag is a prompt to check, not a verdict of wrongdoing.
+
+## Falsifier
+- A flag explained away by a sourced disclosure — record the explanation and
+  retire the flag, instead of keeping it for drama.
