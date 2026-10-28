@@ -5,7 +5,7 @@ The thinking layer. These agents decide what to research, in what order,
 and what counts as a trustworthy answer. They do not calculate (that is
 the toolkit) and they do not invent structure (that is the playbook) —
 they call on both. `agents.json` is the single source of truth for the
-roster: 16 agents, 7 runbooks (counts live there, not here).
+roster: 16 agents, 8 runbooks (counts live there, not here).
 
 ## How to use (free, local)
 - Claude Code: `./scripts/install.sh --tool claude-code`
