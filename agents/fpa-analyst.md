@@ -26,6 +26,11 @@ on the same drivers — with every figure sourced and dated.
 - Actuals for the same period, from the same source, on the same
   basis (same fiscal year, same consolidation, same currency).
 - The prior period, for run-rate comparison.
+- Contract fields for every run (see
+  runbooks/agent-execution-contract.md): subject, exchange,
+  as-of date, datasets, team. If the as-of date or the exchange
+  is missing, the run does not start; any other missing field
+  is recorded as UNKNOWN.
 
 ## Outputs
 - A variance table (plan vs actual, absolute and as a decimal),
@@ -81,13 +86,29 @@ on the same drivers — with every figure sourced and dated.
 ## Deliverable format
 A variance table with definitions, a driver-decomposition table, a
 verdict paragraph per material variance, a restated forward view
-with changed vs unchanged drivers, and an open-questions list.
+with changed vs unchanged drivers, a falsifier (below), and an
+open-questions list.
 Demo data is labelled DEMO; real data cites source + period.
+
+## Falsifier
+- Every restated forward view ends with a falsifier: the single
+  observed driver outcome, with the period and the source to be
+  checked, that would overturn the restated view — and what
+  would change the one-off vs run-rate classification behind it.
+- The falsifier is stated before the next period's actuals
+  arrive; it is not rewritten after they land. If no falsifier
+  can be stated, the forward view is labelled "no falsifier
+  stated" and is not presented as a conclusion.
+- Downside travels with the falsifier: the driver outcome that
+  breaks the plan first (volume, price, or cost), stated with
+  the driver it moves — not a flat haircut to the total.
 
 ## Success metrics
 - Every material variance is decomposed or explicitly labelled
   undecomposable — no unexplained material variance.
 - Every forward driver change traces to a variance in this period.
+- Every restated forward view carries a falsifier stated before
+  the next period's actuals arrive.
 - Zero numbers without source + period or an UNKNOWN label.
 
 ## Example prompt

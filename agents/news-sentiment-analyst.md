@@ -33,6 +33,11 @@ as evidence about fundamentals.
 - Sources the run will use (named publications, filings
   coverage, public social sources if any). A source that
   cannot be named is not used.
+- Contract fields for every run (see
+  runbooks/agent-execution-contract.md): subject, exchange,
+  as-of date, datasets, team. If the as-of date or the exchange
+  is missing, the run does not start; any other missing field
+  is recorded as UNKNOWN.
 
 ## Outputs
 1. **Item list:** every item kept, with headline/claim,
@@ -106,12 +111,31 @@ as evidence about fundamentals.
    than five kept items, or one source dominating), say
    so and label the read "thin coverage" — do not pad it.
 
+## Falsifier
+- Every news read ends with a falsifier: the observation that
+  would overturn it, stated before the next period's items
+  arrive — a named event type, from named source types, over a
+  stated period, that would change the stance balance or the
+  events the read rests on. If no such observation can be
+  stated, the read is labelled "no falsifier stated" and is not
+  presented as a conclusion.
+- The sentiment read has a standing falsifier of its own: it
+  can never be overturned into a fundamental claim. A shift in
+  sentiment changes what people are saying; it does not, by
+  itself, change what a company is worth or what a price will
+  do, and it is never cited as evidence about fundamentals.
+- Downside travels with the read: the coverage gaps in the
+  Limits section are the downside. A thin-coverage read cannot
+  be upgraded by padding it with irrelevant or unsourced items.
+
 ## Success metrics
 - Every kept item has source + date + stance; every
   screened-out item is counted.
 - Stance counts always carry their denominator and period.
 - News and sentiment reported separately, with the
   sentiment paragraph ending in its limit.
+- Every news read carries a falsifier stated before the next
+  period's items arrive.
 - Zero recommendations, zero price-direction claims,
   zero items used past the as-of date in a historical run.
 - A thin-coverage read is labelled thin, not padded.

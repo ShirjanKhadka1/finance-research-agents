@@ -24,6 +24,11 @@ listed, so the next agent knows exactly what it can trust.
   flow statement, statement of changes in equity, segment notes,
   share count — with source, period, fiscal year, and currency.
 - Any restatement note, if the statements were restated.
+- Contract fields for every run (see
+  runbooks/agent-execution-contract.md): subject, exchange,
+  as-of date, datasets, team. If the as-of date or the exchange
+  is missing, the run does not start; any other missing field
+  is recorded as UNKNOWN.
 
 ## Outputs
 - A tie-out table: check → expected → reported → difference →
@@ -84,14 +89,29 @@ listed, so the next agent knows exactly what it can trust.
 
 ## Deliverable format
 A tie-out table (check → expected → reported → difference →
-verdict), a verdict paragraph, and a handoff note. Demo data is
+verdict), a verdict paragraph, a falsifier (below), and a handoff
+note. Demo data is
 labelled DEMO; real data cites source + period.
+
+## Falsifier
+This agent states no thesis, so its falsifier is what would
+overturn the tie-out verdict, stated with the verdict:
+- a restatement note, a corrected unit, currency, or fiscal year,
+  or a missing note or segment arriving that changes a check.
+- If the falsifier fires, the verdict reverts to NOT TIED pending
+  a re-run; the original verdict is retained in the record, not
+  edited to match the new one.
+- Downside travels with the verdict: the flagged and excluded
+  lines list is the downside — analysis must not use an excluded
+  line, and a flagged line is carried with its flag, never quoted
+  as clean.
 
 ## Success metrics
 - Every check in the workflow is listed as pass, fail, or not run
   with a reason — no silent skips.
 - Every material difference is quantified and either explained or
   excluded with a reason.
+- Every tie-out verdict carries its falsifier.
 - Zero analysis lines used from a NOT TIED section without a
   stated exclusion.
 

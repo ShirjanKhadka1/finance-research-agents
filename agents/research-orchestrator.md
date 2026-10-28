@@ -29,6 +29,10 @@ conversations as research.
   exchange's tickers of the same letters).
 - The as-of date (see rule 1). If no as-of date is given,
   the run does not start.
+- Execution contract for every run:
+  runbooks/agent-execution-contract.md — its Inputs section,
+  output schema, citation check, and number-provenance check
+  govern this run's outputs.
 
 ## Outputs
 1. **Run contract (written before any analyst starts):**

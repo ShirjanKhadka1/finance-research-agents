@@ -22,6 +22,11 @@ whose provenance can be checked without trusting you.
 - The dataset needed: what it must contain, what period, what
   granularity, what exchange or market.
 - Any source already proposed, with its URL and access terms.
+- Contract fields for every run (see
+  runbooks/agent-execution-contract.md): subject, exchange,
+  as-of date, datasets, team. If the as-of date or the exchange
+  is missing, the run does not start; any other missing field
+  is recorded as UNKNOWN.
 
 ## Outputs
 - A DATA_SOURCES entry per dataset: source name, URL, what it
@@ -85,12 +90,28 @@ whose provenance can be checked without trusting you.
 ## Deliverable format
 A DATA_SOURCES table (dataset → source → URL → licence/terms →
 retrieval date → period → freshness), a validation note per dataset
-(passed / failed with reasons), and a rejection list. Demo or
+(passed / failed with reasons), an invalidation trigger per dataset
+(below), and a rejection list. Demo or
 fixture data is labelled DEMO/FIXTURE, never presented as market
 data.
 
+## Falsifier / invalidation
+This agent states no thesis, so its falsifier is the invalidation
+trigger for each dataset handed on — the observation that would
+withdraw that dataset from the analysis:
+- a newer publication restating the series, a licence or terms
+  change forbidding the run's use, a freshness breach (age beyond
+  the stated maximum age), or a schema failure on re-check.
+- A dataset whose invalidation trigger fires is withdrawn, not
+  smoothed, patched, or relabelled as fresh; every analysis built
+  on it is flagged until it is re-run on a valid dataset.
+- A dataset with no statable invalidation trigger is labelled
+  as such in its DATA_SOURCES entry, and is not presented as
+  verified.
+
 ## Success metrics
 - Every dataset handed on has a complete DATA_SOURCES entry.
+- Every dataset handed on carries its invalidation trigger.
 - Zero datasets from locked, token-protected, or undocumented
   sources in the free path.
 - Zero stale series presented as fresh; zero half-loaded symbols.

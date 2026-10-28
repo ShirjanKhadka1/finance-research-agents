@@ -30,6 +30,11 @@ dropping is a successful output, not a failure.
 - The market/exchange in scope, stated explicitly (NEPSE names
   are always labelled NEPSE, never confused with another
   exchange's tickers of the same letters).
+- Execution contract for every run:
+  runbooks/agent-execution-contract.md — its Inputs section,
+  output schema, citation check, and number-provenance check
+  govern this run's outputs, including the falsifier and kill
+  criterion carried with each use case.
 
 ## Outputs
 One use case per finding, at most five, each in this fixed
