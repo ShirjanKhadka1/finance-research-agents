@@ -1,0 +1,79 @@
+{
+  "agents": [
+    {
+      "file": "agents/investment-researcher.md",
+      "slug": "investment-researcher",
+      "specialty": "Due diligence, thesis, market research"
+    },
+    {
+      "file": "agents/financial-analyst.md",
+      "slug": "financial-analyst",
+      "specialty": "Three-statement analysis, ratios, DuPont, drivers"
+    },
+    {
+      "file": "agents/forensic-analyst.md",
+      "slug": "forensic-analyst",
+      "specialty": "Profit quality, red flags, cash vs profit"
+    },
+    {
+      "file": "agents/valuation-analyst.md",
+      "slug": "valuation-analyst",
+      "specialty": "DCF, multiples, Gordon growth, sanity checks"
+    },
+    {
+      "file": "agents/nepal-market-researcher.md",
+      "slug": "nepal-market-researcher",
+      "specialty": "NEPSE research, sourced, exchange always stated"
+    },
+    {
+      "file": "agents/reality-checker.md",
+      "slug": "reality-checker",
+      "specialty": "Accuracy audit, falsifiers, downside, review"
+    },
+    {
+      "file": "agents/world-market-researcher.md",
+      "slug": "world-market-researcher",
+      "specialty": "Global markets, regimes, cross-border themes, local test"
+    },
+    {
+      "file": "agents/portfolio-forecast-analyst.md",
+      "slug": "portfolio-forecast-analyst",
+      "specialty": "Portfolio construction, performance, walk-forward forecasting, free API data"
+    }
+  ],
+  "licence": "MIT",
+  "pack": "finance-research-agents",
+  "requires_api_key": false,
+  "requires_server": false,
+  "runbooks": [
+    {
+      "file": "runbooks/company-deep-dive.md",
+      "slug": "company-deep-dive",
+      "team": [
+        "investment-researcher",
+        "forensic-analyst",
+        "financial-analyst",
+        "valuation-analyst",
+        "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/earnings-review.md",
+      "slug": "earnings-review",
+      "team": [
+        "financial-analyst",
+        "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/portfolio-forecast.md",
+      "slug": "portfolio-forecast",
+      "team": [
+        "portfolio-forecast-analyst",
+        "reality-checker"
+      ]
+    }
+  ],
+  "runs_locally": true,
+  "version": "0.1.0"
+}
