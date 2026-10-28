@@ -79,6 +79,16 @@
       "file": "agents/use-case-generator.md",
       "slug": "use-case-generator",
       "specialty": "Completed research into killable applied proposals"
+    },
+    {
+      "file": "agents/ledger-controller.md",
+      "slug": "ledger-controller",
+      "specialty": "Input-ledger integrity: control totals, cut-off, restatements, frozen inputs"
+    },
+    {
+      "file": "agents/risk-stance-analyst.md",
+      "slug": "risk-stance-analyst",
+      "specialty": "Downside scenarios in risky/safe/neutral stances, triggers, never sizing"
     }
   ],
   "licence": "MIT",
@@ -160,6 +170,29 @@
         "research-orchestrator",
         "reality-checker",
         "accuracy-auditor"
+      ]
+    },
+    {
+      "file": "runbooks/structured-debate.md",
+      "slug": "structured-debate",
+      "team": [
+        "research-orchestrator",
+        "ledger-controller",
+        "debate-analyst",
+        "risk-stance-analyst",
+        "reality-checker",
+        "accuracy-auditor"
+      ]
+    },
+    {
+      "file": "runbooks/nepal-research-to-use-case.md",
+      "slug": "nepal-research-to-use-case",
+      "team": [
+        "nepal-market-researcher",
+        "data-scout",
+        "ledger-controller",
+        "use-case-generator",
+        "reality-checker"
       ]
     }
   ],
