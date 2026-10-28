@@ -152,6 +152,15 @@
         "data-scout",
         "reality-checker"
       ]
+    },
+    {
+      "file": "runbooks/agent-execution-contract.md",
+      "slug": "agent-execution-contract",
+      "team": [
+        "research-orchestrator",
+        "reality-checker",
+        "accuracy-auditor"
+      ]
     }
   ],
   "runs_locally": true,
