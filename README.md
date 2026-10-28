@@ -41,6 +41,20 @@ Activate Investment Researcher mode and deep-dive [company, exchange]
 using only sources I provide, with every number sourced.
 ```
 
+## 🏥 Programme health
+
+The whole 8-repo programme is checked daily by
+[`.github/workflows/health.yml`](.github/workflows/health.yml)
+(02:00 UTC, after the toolkit's 01:00 UTC daily update). It reports
+roster consistency, README counts vs evidence, workflow runs, data
+freshness, ledger publication, internal links, and security-config
+presence — and it fails visibly on any FAIL or UNKNOWN, never silently
+green. The latest report lives in [`status/HEALTH.md`](status/HEALTH.md)
+once the job has run; [`status/STATUS.md`](status/STATUS.md) is the
+human-readable status page. There are no email alerts (blocked) and no
+Cloudflare backup (blocked): failure visibility is the report itself
+plus the public workflow log plus dated notes under `status/failures/`.
+
 ## 🎨 The roster
 
 16 agents. `agents.json` is the machine-readable roster; this table
@@ -68,7 +82,7 @@ mirrors it.
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
-7 runbooks.
+8 runbooks.
 
 | Runbook | Team | Job |
 |---|---|---|
@@ -79,6 +93,7 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Data first](runbooks/data-first.md) | Data Scout → Statement Reconciler → Financial → Reality Checker | No analysis on unvalidated, untied data |
 | [Macro to company](runbooks/macro-to-company.md) | World → Nepal → Investment → Reconciler → Financial → Valuation → Reality | Full top-down study, with the Accuracy Auditor ledger rule on forecasts |
 | [Research to use case](runbooks/research-to-use-case.md) | Completed research → Use-Case Generator → Data Scout licence check → Reality Checker | Finished research into killable proposals, killed candidates reported |
+| [Agent execution contract](runbooks/agent-execution-contract.md) | Orchestrator → Reality Checker → Accuracy Auditor | Inputs, sources, output schema, citation + provenance checks, falsifier rule for every run |
 
 ## 📋 What every agent in this pack does (and refuses to do)
 
@@ -137,3 +152,18 @@ Add a new agent, improve an existing one, or share a worked example:
 
 MIT. Use it, fork it, teach with it, build a business on it — just keep the
 accuracy rules, because those are what make it useful.
+
+## Limitations
+
+- These agents are Markdown files: they run inside the reader's own AI
+  tool, on the reader's own machine. This repo itself executes nothing
+  and fetches no live data.
+- An agent's output is only as good as the sources it is given. A number
+  without a source and a period in the output must be treated as UNKNOWN.
+- No live NEPSE feed is provided or claimed anywhere in this repo.
+
+> Research only, not investment advice; never a buy/sell recommendation
+
+See `CONTRIBUTING.md` for how to contribute and `SECURITY.md` for how to
+report a security issue privately.
+
