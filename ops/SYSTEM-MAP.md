@@ -20,8 +20,8 @@ Question ──► Agents (think) ──► Engines (calculate) ──► Data (
    │              │                     │                     │
    │              ▼                     ▼                     ▼
    │        finance-research-     investment-analyst-     toolkit/free_data
-   │        agents (16 agents,    toolkit (118/118) +    (Yahoo, CoinGecko,
-   │        8 runbooks)           analyst-agent (46/46)  ECB, World Bank;
+   │        agents (18 agents,    toolkit (129/129) +    (Yahoo, CoinGecko,
+   │        10 runbooks)           analyst-agent (46/46)  ECB, World Bank;
    │                              + NEPSE scanner        NEPSE = CSV only)
    │                              (57/57)
    ▼
@@ -34,7 +34,7 @@ Domain repos ──► nepal-market-research · nepali-capital-market-research
 
 | Repo | Purpose | Layer | Live status (28 Oct 2026) | Tests / checks (evidence) | Links |
 |---|---|---|---|---|---|
-| `finance-research-agents` | Free, local Markdown agent pack: research agents + runbooks + templates | Agents / runbooks | Live, public, main | Roster check: agents.json vs disk vs README — PASS 16 agents, 8 runbooks (Phase 5 re-run, 28 Oct 2026). No code tests (Markdown). | https://github.com/ShirjanKhadka1/finance-research-agents |
+| `finance-research-agents` | Free, local Markdown agent pack: research agents + runbooks + templates | Agents / runbooks | Live, public, main | Roster check: agents.json vs disk vs README — PASS 18 agents, 10 runbooks (Phase 9, 28 Oct 2026). No code tests (Markdown). | https://github.com/ShirjanKhadka1/finance-research-agents |
 | `investment-analyst-toolkit` | Tested Python toolkit: ratios, DuPont, DCF, multiples, portfolio, performance, forecast, options, Monte Carlo, backtest, autonomous, free-data layer, data layer, Nepal frictions, accuracy report | Engines + Data | Live, public, main, v0.7.0 + sourced-friction patch | 118/118 passed (fresh venv, 28 Oct 2026: 106 at v0.7.0 + 12 patch tests). CI: GitHub Actions, pytest 3.10/3.11/3.12; scheduled daily workflow (Phase 3) is a plan until its first run is observed. | https://github.com/ShirjanKhadka1/investment-analyst-toolkit |
 | `financial-research-analyst-agent` | Standalone stdlib-only pipeline: technicals, Piotroski, valuation by company type, VaR, debate + Risk Veto, hash-chained audit log | Engines | Live, public, main | 46/46 passed (fresh venv, 28 Oct 2026; CI run #1 succeeded 28 Oct 2026). Coverage thickened in Phase 4 (sentiment, server, isolated technicals, bad-input tests). | https://github.com/ShirjanKhadka1/financial-research-analyst-agent |
 | `nepali-capital-market-research` | Whole Nepal capital market: agent, guides, templates, NEPSE scanner, reference-site teardown | Domain (Nepal) + Engines (scanner) | Live, public, main | Scanner 57/57 passed (fresh venv, 28 Oct 2026). CI: workflow added in Phase 2 (`.github/workflows/test.yml`, same Python matrix). Parent README mentions `scanner/` and `research/`; scanner is CSV-only, no live NEPSE feed. | https://github.com/ShirjanKhadka1/nepali-capital-market-research |
