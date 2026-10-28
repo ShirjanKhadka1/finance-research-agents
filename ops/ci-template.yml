@@ -1,30 +1,53 @@
-# Shared CI template for the programme's Python repos (Phase 2, hybrid).
-# Copy this file into a repo as .github/workflows/test.yml and adapt ONLY
-# the test path and smoke commands in the last two steps. Do not remove
-# the Python matrix or the pytest step: the Phase 1 drift (stale test
-# counts in READMEs) is only fixed if CI actually runs the suite on
-# every push and the README points at CI instead of a hand-typed number.
-#
-# Already live in this shape: investment-analyst-toolkit,
-# financial-research-analyst-agent (both: Tests run succeeded 28 Oct 2026).
-# Added in Phase 2: nepali-capital-market-research (scanner suite).
-# Not applicable to Markdown-only repos: for those, use ops/check_roster.py
-# (agent pack) or a link check instead of pytest.
+# Shared CI template for the programme's Python repos (Phase 7).
+# Three jobs: matrix tests, quality gates, smoke.
+# - Matrix job (pytest only) runs OS x Python: Linux/macOS/Windows
+#   x Python 3.10/3.11/3.12. macOS/Windows are CI-only until their
+#   first GitHub run is observed; never claim them proven locally.
+# - Quality job (ubuntu only): ruff, mypy where applicable, and
+#   coverage where configured (toolkit: fail_under=80).
+# - Smoke job (ubuntu only): the repo's existing CLI smoke commands.
+# All CI dependencies are pinned to versions measured 28 Oct 2026:
+# pytest 9.2.0, ruff 0.17.3, mypy 2.4.0, coverage 7.17.0.
+# Copy into a repo as .github/workflows/test.yml and adapt ONLY
+# the test path, the quality steps that apply to that repo, and
+# the smoke commands. Markdown-only repos do not use this template:
+# for them, use ops/check_roster.py (agent pack) or a link check.
 name: Tests
 on: [push, pull_request]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install pytest
-      # ADAPT: point at this repo's test directory, e.g. tests/ or scanner/tests/
+      - run: pip install "pytest==9.2.0"
+      # ADAPT: point at this repo's test directory.
       - run: python -m pytest tests/ -q
-      # ADAPT (optional): CLI smoke commands for this repo, e.g.
-      # - run: python -m toolkit.cli predict
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "pytest==9.2.0" "ruff==0.17.3" "mypy==2.4.0" "coverage==7.17.0"
+      # ADAPT: keep only the gates that apply to this repo.
+      # Scanner: ruff only (mypy rejects its dual import mode).
+      - run: ruff check toolkit/ tests/
+      - run: mypy toolkit/
+      - run: coverage run -m pytest tests/ -q
+      - run: coverage report
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # ADAPT: the repo's existing CLI smoke commands.
