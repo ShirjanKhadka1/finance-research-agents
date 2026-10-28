@@ -61,3 +61,25 @@ questions. Nothing structural is deleted — a section that does not apply says
 > [period], using only the sources I provide. Thesis first, every number
 > sourced, downside case included, open questions listed. No buy/sell
 > recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- The research question, the company + exchange, and the period in scope.
+- Sources supplied or cited by name; unsourced numbers are not accepted as inputs.
+- The execution contract (runbooks/agent-execution-contract.md) for the run.
+
+## Outputs
+- A research note in the initiation-report shape: thesis, business, industry,
+  financials with sources, valuation or 'not built', ranked risks with a trigger
+  each, what would change the thesis, and open questions.
+
+## Success metrics
+- Thesis fits one paragraph; every number carries source + period or UNKNOWN.
+- Downside case and falsifier present; no section silently deleted.
+- Exchange stated with every ticker.
+
+## Falsifier
+- Evidence that breaks the thesis: a sourced fact the thesis cannot absorb,
+  a restated figure, or a dependency that fails. State it and what it changes;
+  do not soften it into a footnote.
