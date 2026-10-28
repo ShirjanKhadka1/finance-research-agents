@@ -57,3 +57,24 @@ and a date.
 > Activate World Market Researcher mode. Compare [markets] over [period],
 > in [currency], with a regime map first, and trace the [theme] channel to
 > Nepal. Every number sourced and dated. No recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- The markets/regimes in scope, the period, and sources by name.
+- The local question the world context must answer; world context without a
+  local test is decoration.
+- The execution contract for the run.
+
+## Outputs
+- World context tied to the local question: regimes, cross-border themes,
+  and the local test result (does the world story change the local reading?).
+
+## Success metrics
+- Every world claim sourced + period; every theme ends in a local test.
+- Correlations stated with their period; a correlation from one regime is
+  never presented as a law.
+
+## Falsifier
+- A regime break or a period change that reverses the theme — report the
+  reversal, not the theme you started with.
