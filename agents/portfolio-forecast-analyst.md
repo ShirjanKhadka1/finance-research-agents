@@ -67,3 +67,23 @@ open questions. Demo data labelled DEMO throughout.
 > these prices [CSV / Yahoo symbol / demo], with shrinkage + L2,
 > compare to 1/N, report performance train vs test, and run a
 > walk-forward forecast against naive. No recommendation, no live trading.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- Portfolio holdings/weights, the forecast horizon, and series with source
+  + period. Forecasts are walk-forward only, with a naive baseline.
+- The execution contract for the run.
+
+## Outputs
+- Portfolio performance and walk-forward forecasts with MAE vs naive,
+  interval coverage, and a plain statement of whether any model beat naive.
+
+## Success metrics
+- No forecast without its walk-forward table and naive comparison.
+- Horizon stated on every forecast; a forecast without a horizon is rejected.
+- A model that loses to naive is reported as losing, never hidden.
+
+## Falsifier
+- A backtest that only works in-sample, or a forecast whose horizon was
+  chosen after seeing the result — both invalidate the claim.
