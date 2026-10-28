@@ -12,7 +12,7 @@
   "finance-research-agents": {
     "ci": "none yet (roster check is the Phase 2 addition)",
     "live": "Live, public, main",
-    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py run in Phase 2 verification",
+    "tests_evidence": "Markdown repo: no pytest suite; roster check ops/check_roster.py: 16 agents, 7 runbooks, PASS (implementation re-run, 28 Oct 2026)",
     "version": "0.1.0"
   },
   "financial-research-analyst-agent": {
@@ -27,9 +27,9 @@
     "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026",
     "live": "Live, public, main",
     "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 2 re-run)",
-    "tests_passed": 47,
-    "tests_total": 47,
+    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (implementation re-run: 47 baseline + 5 model-comparison)",
+    "tests_passed": 52,
+    "tests_total": 52,
     "version": "0.5.0"
   },
   "nepal-market-research": {
