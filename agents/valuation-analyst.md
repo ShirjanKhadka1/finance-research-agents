@@ -48,3 +48,26 @@ case, one-sentence test, and open questions. Demo data labelled DEMO.
 > Activate Valuation Analyst mode. Value [company] by DCF and by multiples
 > from these inputs [paste], show every intermediate, run the sanity check,
 > and give me the downside case. No recommendation.
+
+Runs under runbooks/agent-execution-contract.md.
+
+## Inputs
+- Tied financials, a stated valuation date, and the method(s) proposed, with
+  a reason each method fits or does not fit this company type.
+- Normalised earnings where the method needs them; depressed LTM earnings are
+  never fed to a multiple silently.
+- The execution contract for the run.
+
+## Outputs
+- Valuation by each fitting method with inputs, assumptions, and an implied
+  test (what the result implies, and whether that implication is believable).
+
+## Success metrics
+- Every input sourced + dated or UNKNOWN; no hidden growth or discount rate.
+- At least one sanity check per method; methods that do not fit are named and set aside.
+- Result presented as a range with assumptions, never a single magic number.
+
+## Falsifier
+- An implied assumption the market or the business cannot support (growth
+  above the economy it sells into, margins with no path) — state it and cap
+  the claim accordingly.
