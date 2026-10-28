@@ -54,6 +54,7 @@ using only sources I provide, with every number sourced.
 | 🌍 [World Market Researcher](agents/world-market-researcher.md) | Global markets, regimes, cross-border themes | Comparing markets, placing a local story in world context |
 | 📈 [Portfolio & Forecast Analyst](agents/portfolio-forecast-analyst.md) | Portfolio, performance, walk-forward forecasting, free API data | Building a portfolio, judging a model, forecasting honestly |
 | ⚔️ [Debate Analyst](agents/debate-analyst.md) | Bull vs Bear debate + Risk Veto, toolkit numbers for every argument | When a single verdict would be too easy |
+| 🎯 [Accuracy Auditor](agents/accuracy-auditor.md) | Prediction ledger audit, failure logging, model demotion | After every autonomous run, before any report is shared |
 
 ## 🎯 Runbooks — teams that work together
 
@@ -85,6 +86,10 @@ A runbook is a team for one job, in order. See `runbooks/`.
 
 - **Debate Analyst (new, 9th agent):** every thesis is argued Bull vs Bear from computed numbers, and the Risk Manager can veto to zero.
 - **Toolkit v0.4 companion:** options, Monte Carlo, costed backtests, CLI, fresh-data fallback chain (no stale data), predictive auto-selection + ensemble, and an autonomous updater that re-runs reports daily with a hash-chained audit log — see [investment-analyst-toolkit](https://github.com/ShirjanKhadka1/investment-analyst-toolkit).
+
+## 🎯 Accuracy Auditor (new, 10th agent)
+
+Audits the prediction ledger, logs failures, demotes failing models, and checks archive completeness and data freshness before any report goes out. Runbook: `runbooks/prediction-accuracy-loop.md`.
 
 ## 🧰 How this repo is organised (the agency-agents pattern, finance-only)
 

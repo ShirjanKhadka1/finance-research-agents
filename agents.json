@@ -44,6 +44,11 @@
       "file": "agents/debate-analyst.md",
       "slug": "debate-analyst",
       "specialty": "Bull vs Bear debate + Risk Veto, toolkit numbers for every argument"
+    },
+    {
+      "file": "agents/accuracy-auditor.md",
+      "slug": "accuracy-auditor",
+      "specialty": "Prediction ledger audit, failure logging, model demotion"
     }
   ],
   "licence": "MIT",
