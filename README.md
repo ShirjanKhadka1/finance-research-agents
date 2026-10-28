@@ -57,7 +57,7 @@ plus the public workflow log plus dated notes under `status/failures/`.
 
 ## 🎨 The roster
 
-16 agents. `agents.json` is the machine-readable roster; this table
+18 agents. `agents.json` is the machine-readable roster; this table
 mirrors it.
 
 | Agent | Specialty | When to use |
@@ -78,11 +78,13 @@ mirrors it.
 | ⚔️ [Debate Analyst](agents/debate-analyst.md) | Bull vs Bear debate + Risk Veto, toolkit numbers for every argument | When a single verdict would be too easy |
 | 🎯 [Accuracy Auditor](agents/accuracy-auditor.md) | Prediction ledger audit, failure logging, model demotion | After every autonomous run, before any report is shared |
 | 🧩 [Use-Case Generator](agents/use-case-generator.md) | Completed research into killable applied proposals | After a research report exists, never instead of one |
+| 🧾 [Ledger Controller](agents/ledger-controller.md) | Input-ledger integrity: control totals, cut-off, restatements, frozen inputs | Before any analyst touches the numbers, and after any restatement |
+| 🛡️ [Risk Stance Analyst](agents/risk-stance-analyst.md) | Downside scenarios in risky/safe/neutral stances, triggers, never sizing | After the Bull/Bear debate, before the Risk Veto |
 
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
-8 runbooks.
+10 runbooks.
 
 | Runbook | Team | Job |
 |---|---|---|
@@ -94,6 +96,8 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Macro to company](runbooks/macro-to-company.md) | World → Nepal → Investment → Reconciler → Financial → Valuation → Reality | Full top-down study, with the Accuracy Auditor ledger rule on forecasts |
 | [Research to use case](runbooks/research-to-use-case.md) | Completed research → Use-Case Generator → Data Scout licence check → Reality Checker | Finished research into killable proposals, killed candidates reported |
 | [Agent execution contract](runbooks/agent-execution-contract.md) | Orchestrator → Reality Checker → Accuracy Auditor | Inputs, sources, output schema, citation + provenance checks, falsifier rule for every run |
+| [Structured debate](runbooks/structured-debate.md) | Orchestrator → Ledger Controller → parallel analysts → Debate → Risk Stance → Reality Checker | Parallel analysis, Bull/Bear debate, risk scenarios, publication gate |
+| [Nepal research to use case](runbooks/nepal-research-to-use-case.md) | Nepal Researcher → Data Scout → Ledger Controller → Use-Case Generator → Reality Checker | Completed Nepal research into killable proposals, sectors alphabetical unless evidence ≥ 3 |
 
 ## 📋 What every agent in this pack does (and refuses to do)
 
