@@ -1,3 +1,12 @@
+> **SUPERSEDED (Round 3) — do not use the numbers below as current.**
+> The canonical programme map is
+> [`finance-research-agents/ops/SYSTEM-MAP.md`](https://github.com/ShirjanKhadka1/finance-research-agents/blob/main/ops/SYSTEM-MAP.md),
+> and current counts live in each repo's generated `status.json`
+> (produced by `scripts/generate_status.py`, checked by `scripts/check_numbers.py`).
+> This file is kept in place, unchanged except for this banner and for
+> count claims replaced by pointers below, so its history is preserved.
+> Any number still visible below is historical, not current.
+
 # Integration — finance-research-agents
 
 ## Role in the system
@@ -5,7 +14,7 @@ The thinking layer. These agents decide what to research, in what order,
 and what counts as a trustworthy answer. They do not calculate (that is
 the toolkit) and they do not invent structure (that is the playbook) —
 they call on both. `agents.json` is the single source of truth for the
-roster: 16 agents, 8 runbooks (counts live there, not here).
+roster (counts live there and in `ops/status.json`, not here).
 
 ## How to use (free, local)
 - Claude Code: `./scripts/install.sh --tool claude-code`
