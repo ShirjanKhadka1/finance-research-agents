@@ -32,8 +32,16 @@ version would start a new ledger entry, never a quiet edit.
 
 **Cut-off check.** FY 2081/82 audited figures stay in FY 2081/82;
 FY 2082/83 unaudited quarterlies stay in FY 2082/83 and are never
-averaged into the audited year. The Rs 32.0M current lease liability
-sits inside working capital (ledger note); it is not double-counted.
+averaged into the audited year. The Rs 32,042,935 current lease
+liability (ledger: Rs 32.0M) sits inside working capital (ledger
+note); it is not double-counted.
+
+> Provenance (Round 3, R7, 29 Oct 2026): every FY 2081/82 figure in
+> §2 matches the programme's single source,
+> `nepal-market-research/data/bnt-verified-figures.md`, exactly
+> (cross-checked figure by figure; no numeric mismatch found).
+> Page reference for every figure: TO VERIFY — no copy of the 39th
+> annual report PDF is on file; see that file's verification status.
 
 **Restatement log.** Two retired figures from the sprint ledger are
 **not** used here: stake "~92%" (superseded by 90.78%) and the Day 6
