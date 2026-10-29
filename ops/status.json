@@ -1,0 +1,13 @@
+{
+  "repo": "finance-research-agents",
+  "agents": 18,
+  "runbooks": 10,
+  "templates": 4,
+  "agents_json_entries": 19,
+  "guide_files_excluded_from_agents": [
+    "WHEN-TO-USE.md"
+  ],
+  "generated_by": "ops/generate_counts.py (Round 3: file counts from disk)",
+  "generated_at": "2026-10-29",
+  "method": "agents counted as agents/*.md minus WHEN-TO-USE.md; runbooks/templates counted as *.md in their folders; agents.json entries counted from the file"
+}
