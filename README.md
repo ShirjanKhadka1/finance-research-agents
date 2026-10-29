@@ -81,6 +81,8 @@ mirrors it.
 | 🧾 [Ledger Controller](agents/ledger-controller.md) | Input-ledger integrity: control totals, cut-off, restatements, frozen inputs | Before any analyst touches the numbers, and after any restatement |
 | 🛡️ [Risk Stance Analyst](agents/risk-stance-analyst.md) | Downside scenarios in risky/safe/neutral stances, triggers, never sizing | After the Bull/Bear debate, before the Risk Veto |
 
+Guide (not an agent, not counted in the 18): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 18 agents + 1 guide file.
+
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
@@ -132,6 +134,7 @@ agents/            one .md file per agent: identity, mission, workflow, delivera
 runbooks/          teams of agents for one job, in order
 templates/         initiation report, earnings review, forensic checklist, valuation sanity check
 examples/          worked examples on DEMO data only, plus one inputs-only Nepal case study
+docs/worked-example/  full worked example on a real subject: Bottlers Nepal (Terai), NEPSE: BNT, via the structured-debate runbook (research only; frozen as of 2026-10-16; not a runbook, not counted in the 10)
 scripts/           install.sh — copies agent files to your tool's agent directory, nothing else
 agents.json        machine-readable roster: every agent, its file, its specialty
 ```
