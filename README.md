@@ -58,7 +58,8 @@ plus the public workflow log plus dated notes under `status/failures/`.
 ## 🎨 The roster
 
 18 agents. `agents.json` is the machine-readable roster; this table
-mirrors it.
+mirrors it. Generated counts: see `ops/status.json` (produced by
+`ops/generate_counts.py`, checked by `ops/check_numbers.py`).
 
 | Agent | Specialty | When to use |
 |---|---|---|
