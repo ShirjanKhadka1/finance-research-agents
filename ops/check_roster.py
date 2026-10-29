@@ -26,10 +26,21 @@ def main(argv=None):
     parser.add_argument(
         "--repo",
         default=None,
-        help="Path to finance-research-agents (default: ../finance-research-agents)",
+        help="Path to finance-research-agents (default: auto-detect)",
     )
     args = parser.parse_args(argv)
-    repo = Path(args.repo) if args.repo else Path(__file__).resolve().parent.parent / "finance-research-agents"
+    if args.repo:
+        repo = Path(args.repo)
+    else:
+        # Auto-detect: in a CI checkout this script lives at
+        # <repo>/ops/check_roster.py, so the repo root is two levels up
+        # and holds agents.json. In the shared workspace layout it lives
+        # at <workspace>/ops/check_roster.py and the repo is a sibling
+        # directory. The old default (always sibling) pointed at a
+        # non-existent third level inside a CI checkout and made the
+        # daily health job fail with FileNotFoundError.
+        here = Path(__file__).resolve().parent.parent
+        repo = here if (here / "agents.json").exists() else here / "finance-research-agents"
     errors = []
 
     agents_json = json.loads((repo / "agents.json").read_text(encoding="utf-8"))
