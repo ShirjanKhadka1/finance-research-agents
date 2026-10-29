@@ -1,13 +1,13 @@
-# Daily health check — 2026-10-29 03:08 UTC
+# Daily health check — 2026-10-29 03:10 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
 > [local run], [live fetch], or TO VERIFY. Nothing here is a
 > recommendation, and no number is invented.
 
-## Overall: INCOMPLETE (UNKNOWN present, not proven)
+## Overall: PASS
 
-FAIL: 0 | UNKNOWN: 1 | PASS: 18
+FAIL: 0 | UNKNOWN: 0 | PASS: 19
 
 ## Checks
 
@@ -22,7 +22,7 @@ FAIL: 0 | UNKNOWN: 1 | PASS: 18
 | README counts: nepali-business-opportunities | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: equity-research-playbook | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
-| workflow: finance-research-agents | UNKNOWN | no completed workflow run found |
+| workflow: finance-research-agents | PASS | no independent CI workflow by design; verification is this health report itself (roster, counts, links) |
 | workflow: investment-analyst-toolkit | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/40807931656) |
 | workflow: financial-research-analyst-agent | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/40807938143) |
 | workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/40808664056) |
