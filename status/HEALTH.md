@@ -1,4 +1,4 @@
-# Daily health check — 2026-10-29 02:40 UTC
+# Daily health check — 2026-10-29 02:42 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -7,26 +7,26 @@
 
 ## Overall: FAIL
 
-FAIL: 5 | UNKNOWN: 1 | PASS: 13
+FAIL: 2 | UNKNOWN: 0 | PASS: 17
 
 ## Checks
 
 | Check | Status | Detail |
 |---|---|---|
-| roster | FAIL | roster check exit 1: FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/finance-research-agents/finance-research-agents/finance-research-agents/agents.json' |
+| roster | PASS | PASS: roster consistent (agents, runbooks, README tables all match). |
 | README counts: finance-research-agents | PASS | no counts in README, none in evidence (Markdown repo) |
-| README counts: investment-analyst-toolkit | FAIL | evidence says 148/148 but README carries [] |
-| README counts: financial-research-analyst-agent | FAIL | evidence says 46/46 but README carries [] |
-| README counts: nepali-capital-market-research | FAIL | evidence says 57/57 but README carries [] |
+| README counts: investment-analyst-toolkit | PASS | README carries 148/148 matching evidence |
+| README counts: financial-research-analyst-agent | PASS | README carries 46/46 matching evidence |
+| README counts: nepali-capital-market-research | PASS | README carries 57/57 matching evidence |
 | README counts: nepal-market-research | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: nepali-business-opportunities | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: equity-research-playbook | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
-| workflow: finance-research-agents | UNKNOWN | no completed workflow run found |
+| workflow: finance-research-agents | FAIL | latest completed run: Daily health check -> failure (https://github.com/ShirjanKhadka1/finance-research-agents/actions/runs/40807692372) |
 | workflow: investment-analyst-toolkit | PASS | latest completed run: Scheduled update -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/40807660751) |
 | workflow: financial-research-analyst-agent | PASS | latest completed run: github_actions in /. - Update #1661609996 -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/40778397753) |
 | workflow: nepali-capital-market-research | FAIL | latest completed run: pip in /. - Update #1661095607 -> failure (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/40735458476) |
-| data: freshness | PASS | latest run 20261029T023941Z is 0.0 hours old |
+| data: freshness | PASS | latest run 20261029T023941Z is 0.1 hours old |
 | data: ledger | PASS | latest summary reports/daily/summary-20261029T023941Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 31 internal link(s) checked, none missing (external links not checked: excluded, see report) |
 | security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
