@@ -89,6 +89,11 @@
       "file": "agents/risk-stance-analyst.md",
       "slug": "risk-stance-analyst",
       "specialty": "Downside scenarios in risky/safe/neutral stances, triggers, never sizing"
+    },
+    {
+      "file": "agents/WHEN-TO-USE.md",
+      "slug": "when-to-use-guide",
+      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 18 agents plus this 1 guide file)"
     }
   ],
   "licence": "MIT",
