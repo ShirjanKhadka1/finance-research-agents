@@ -1,4 +1,4 @@
-# Daily health check — 2026-10-29 02:42 UTC
+# Daily health check — 2026-10-29 02:47 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -22,10 +22,10 @@ FAIL: 2 | UNKNOWN: 0 | PASS: 17
 | README counts: nepali-business-opportunities | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: equity-research-playbook | PASS | no counts in README, none in evidence (Markdown repo) |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
-| workflow: finance-research-agents | FAIL | latest completed run: Daily health check -> failure (https://github.com/ShirjanKhadka1/finance-research-agents/actions/runs/40807692372) |
-| workflow: investment-analyst-toolkit | PASS | latest completed run: Scheduled update -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/40807660751) |
-| workflow: financial-research-analyst-agent | PASS | latest completed run: github_actions in /. - Update #1661609996 -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/40778397753) |
-| workflow: nepali-capital-market-research | FAIL | latest completed run: pip in /. - Update #1661095607 -> failure (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/40735458476) |
+| workflow: finance-research-agents | FAIL | latest completed run: Daily health check -> failure (https://github.com/ShirjanKhadka1/finance-research-agents/actions/runs/40807982936) |
+| workflow: investment-analyst-toolkit | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/40807931656) |
+| workflow: financial-research-analyst-agent | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/40807938143) |
+| workflow: nepali-capital-market-research | FAIL | latest completed run: Tests -> failure (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/40807944516) |
 | data: freshness | PASS | latest run 20261029T023941Z is 0.1 hours old |
 | data: ledger | PASS | latest summary reports/daily/summary-20261029T023941Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 31 internal link(s) checked, none missing (external links not checked: excluded, see report) |
