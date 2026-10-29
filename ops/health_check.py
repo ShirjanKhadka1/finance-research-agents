@@ -235,7 +235,7 @@ def check_workflows(live):
             results.append((repo, "UNKNOWN", err))
             continue
         completed = [r for r in data.get("workflow_runs", [])
-                     if r.get("conclusion")]
+                     if r.get("conclusion") and r.get("head_branch") == "main"]
         if not completed:
             results.append((repo, "UNKNOWN",
                             "no completed workflow run found"))
