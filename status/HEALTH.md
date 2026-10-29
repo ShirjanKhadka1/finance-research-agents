@@ -1,9 +1,72 @@
-# Daily health check — not yet run
+# Daily health check — 2026-10-29 02:40 UTC
 
-> This is a placeholder, not a health result. The daily health job
-> (`.github/workflows/health.yml`, daily 02:00 UTC) replaces this file
-> with a generated report on its first run. Until then, no health
-> result is claimed: see `STATUS.md` for the first snapshot (28 Oct
-> 2026, local + live-fetch evidence) and its UNKNOWN items.
+> Research only. Not investment advice. This report is generated,
+> not hand-written. A value is only as good as its evidence label:
+> [local run], [live fetch], or TO VERIFY. Nothing here is a
+> recommendation, and no number is invented.
 
-Research only. Not investment advice.
+## Overall: FAIL
+
+FAIL: 5 | UNKNOWN: 1 | PASS: 13
+
+## Checks
+
+| Check | Status | Detail |
+|---|---|---|
+| roster | FAIL | roster check exit 1: FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/finance-research-agents/finance-research-agents/finance-research-agents/agents.json' |
+| README counts: finance-research-agents | PASS | no counts in README, none in evidence (Markdown repo) |
+| README counts: investment-analyst-toolkit | FAIL | evidence says 148/148 but README carries [] |
+| README counts: financial-research-analyst-agent | FAIL | evidence says 46/46 but README carries [] |
+| README counts: nepali-capital-market-research | FAIL | evidence says 57/57 but README carries [] |
+| README counts: nepal-market-research | PASS | no counts in README, none in evidence (Markdown repo) |
+| README counts: nepali-business-opportunities | PASS | no counts in README, none in evidence (Markdown repo) |
+| README counts: equity-research-playbook | PASS | no counts in README, none in evidence (Markdown repo) |
+| README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
+| workflow: finance-research-agents | UNKNOWN | no completed workflow run found |
+| workflow: investment-analyst-toolkit | PASS | latest completed run: Scheduled update -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/40807660751) |
+| workflow: financial-research-analyst-agent | PASS | latest completed run: github_actions in /. - Update #1661609996 -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/40778397753) |
+| workflow: nepali-capital-market-research | FAIL | latest completed run: pip in /. - Update #1661095607 -> failure (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/40735458476) |
+| data: freshness | PASS | latest run 20261029T023941Z is 0.0 hours old |
+| data: ledger | PASS | latest summary reports/daily/summary-20261029T023941Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
+| internal links | PASS | 31 internal link(s) checked, none missing (external links not checked: excluded, see report) |
+| security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
+| security config: financial-research-analyst-agent | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
+| security config: nepali-capital-market-research | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
+
+## What this job cannot check (recorded, not hidden)
+
+- Email alerts: blocked (Gmail connector not connected). Failure
+  visibility is this report + the public workflow run log + dated
+  notes under status/failures/. No email alert is claimed.
+- Cloudflare cron backup: blocked (Cloudflare access unverified).
+  The toolkit's scheduled workflow is the only schedule.
+- Dependabot / CodeQL / secret scanning / push protection
+  enablement: the GitHub API needs auth for alerts, so this job
+  checks config-file presence only; enablement is TO VERIFY in
+  each repo's Security tab.
+- Ledger-vs-accuracy-report drift: the ledger is only checkable
+  locally. From public output this job can only confirm a run
+  summary is published and parses. Publishing a ledger summary
+  in reports/daily/ on every run is an open owner decision.
+- External links: not checked (flaky, rate-limited). Internal
+  relative links in the agents repo are checked.
+- Live NEPSE data: no documented free public NEPSE OHLCV API
+  exists; the scanner stays CSV-only. Nothing in this report
+  implies a live NEPSE feed.
+
+## Known blockers (standing)
+
+- Phase 3 scheduled workflow's first run: not yet observed.
+  Until it is seen with public output in reports/daily/, the
+  schedule is a plan, not a proven fact, and freshness stays
+  UNKNOWN.
+- Nepal friction re-checks before reliance on a real trade:
+  circuit limits (+15%/-15%, user-supplied 28 Oct 2026) against
+  a current NEPSE/SEBON notice; broker-58 T+1 example against
+  that broker.
+- Private repos cannot be listed without a token, and that
+  would NOT authorise opening the private Nepse Decode project,
+  which stays out of scope regardless.
+
+Research only. Not investment advice. No trade is made by this
+system.
