@@ -26,11 +26,11 @@
   "investment-analyst-toolkit": {
     "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026; scheduled-update workflow added in Phase 3 (first run not yet observed)",
     "live": "Live, public, main",
-    "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 4: 106 at v0.7.0 + 12 Phase 4 patch tests for the sourced NEPSE friction schedule; Phase 7: + 6 property tests \u2014 put-call parity grid, discounted-intrinsic bounds, DCF/Gordon monotonicity, portfolio volatility bounds, keyed-fetcher resolved-key tests; ruff clean, mypy clean default settings, coverage 82%)",
-    "tests_passed": 129,
-    "tests_total": 129,
-    "version": "0.7.0"
+    "tests_date": "2026-10-29",
+    "tests_evidence": "pytest run in a fresh venv, 29 Oct 2026 (Phase 10: 129 at Phase 9 + 19 new tests \u2014 AR(1), Holt/damped Holt, drift, multi-horizon h=1/3/5 evaluation, empirical intervals, adaptive weighting, drift flags; version bumped to v0.8.0)",
+    "tests_passed": 148,
+    "tests_total": 148,
+    "version": "0.8.0"
   },
   "nepal-market-research": {
     "ci": "none",
