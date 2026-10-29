@@ -237,7 +237,14 @@ def check_workflows(live):
         completed = [r for r in data.get("workflow_runs", [])
                      if r.get("conclusion") and r.get("head_branch") == "main"
                      and (r.get("triggering_actor") or {}).get("login") != "dependabot[bot]"
-                     and (r.get("actor") or {}).get("login") != "dependabot[bot]"]
+                     and (r.get("actor") or {}).get("login") != "dependabot[bot]"
+                     # The health workflow must not judge itself: a failing
+                     # health run would otherwise make every later health
+                     # run fail on its predecessor forever, even after the
+                     # underlying issue is fixed. The health report itself
+                     # is the evaluation for this repo.
+                     and not (repo == "finance-research-agents"
+                              and r.get("name") == "Daily health check")]
         if not completed:
             results.append((repo, "UNKNOWN",
                             "no completed workflow run found"))
