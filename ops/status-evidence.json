@@ -5,9 +5,12 @@
     "tests_evidence": "Profile repo: no code tests"
   },
   "equity-research-playbook": {
-    "ci": "none",
+    "ci": "GitHub Actions check-numbers workflow (Round 3); template check scripts/check_template.py",
     "live": "Live, public, main",
-    "tests_evidence": "Markdown repo: no code tests; templates only"
+    "tests_evidence": "status.json generated 29 Oct 2026 (Round 3): scripts/check_template.py, 6 tests",
+    "tests_date": "2026-10-30",
+    "tests_passed": 6,
+    "tests_total": 6
   },
   "finance-research-agents": {
     "ci": "none yet (roster check is the Phase 2 addition); daily health workflow added in Phase 8 (first run not yet observed)",
@@ -16,20 +19,20 @@
     "version": "0.1.0"
   },
   "financial-research-analyst-agent": {
-    "ci": "GitHub Actions Tests, run #1 succeeded 28 Oct 2026",
+    "ci": "GitHub Actions Tests, latest runs succeeded; check-numbers workflow added in Round 3",
     "live": "Live, public, main",
-    "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026 (Phase 4: 4 original + 42 new tests; flat-RSI bug fixed)",
-    "tests_passed": 46,
-    "tests_total": 46
+    "tests_date": "2026-10-30",
+    "tests_evidence": "pytest run in a fresh venv, 30 Oct 2026 (Phase 11: 49 tests)",
+    "tests_passed": 49,
+    "tests_total": 49
   },
   "investment-analyst-toolkit": {
-    "ci": "GitHub Actions Tests, run #4 succeeded 28 Oct 2026; scheduled-update workflow added in Phase 3 (first run not yet observed)",
+    "ci": "GitHub Actions Tests + check-numbers workflow (Round 3); scheduled-update workflow (Phase 3)",
     "live": "Live, public, main",
-    "tests_date": "2026-10-29",
-    "tests_evidence": "pytest run in a fresh venv, 29 Oct 2026 (Phase 10: 129 at Phase 9 + 19 new tests \u2014 AR(1), Holt/damped Holt, drift, multi-horizon h=1/3/5 evaluation, empirical intervals, adaptive weighting, drift flags; version bumped to v0.8.0)",
-    "tests_passed": 148,
-    "tests_total": 148,
+    "tests_date": "2026-10-30",
+    "tests_evidence": "pytest run in a fresh venv, 30 Oct 2026 (Phase 11: 195 tests + 3 Round 3 nepse_loader tests = 198; coverage 93%)",
+    "tests_passed": 198,
+    "tests_total": 198,
     "version": "0.8.0"
   },
   "nepal-market-research": {
@@ -43,11 +46,11 @@
     "tests_evidence": "Markdown repo: no code tests; framework only, no scored evidence yet"
   },
   "nepali-capital-market-research": {
-    "ci": "workflow added in Phase 2 (parent .github/workflows/test.yml); runs publicly after deployment",
+    "ci": "GitHub Actions Tests + check-numbers workflow (Round 3)",
     "live": "Live, public, main",
-    "tests_date": "2026-10-28",
-    "tests_evidence": "pytest run in a fresh venv, 28 Oct 2026, scanner/tests/ (Phase 4: 40 original + 17 signal-label tests)",
-    "tests_passed": 57,
-    "tests_total": 57
+    "tests_date": "2026-10-30",
+    "tests_evidence": "pytest run in a fresh venv, 30 Oct 2026, scanner/tests/ (Phase 11: 70 tests + 3 Round 3 nepse_bridge tests = 73)",
+    "tests_passed": 73,
+    "tests_total": 73
   }
 }
