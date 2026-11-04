@@ -1,4 +1,4 @@
-# Daily health check — 2026-11-03 08:45 UTC
+# Daily health check — 2026-11-04 08:14 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -23,11 +23,11 @@ FAIL: 2 | UNKNOWN: 0 | PASS: 17
 | README counts: equity-research-playbook | FAIL | evidence says 6/6 but README carries [] |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
 | workflow: finance-research-agents | PASS | no independent CI workflow by design; verification is this health report itself (roster, counts, links) |
-| workflow: investment-analyst-toolkit | FAIL | latest completed run: Failure alert -> skipped (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/41598626620) |
+| workflow: investment-analyst-toolkit | FAIL | latest completed run: Failure alert -> skipped (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/41792179674) |
 | workflow: financial-research-analyst-agent | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/41458622905) |
 | workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/41471810173) |
-| data: freshness | PASS | latest run 20261103T074659Z is 1.0 hours old |
-| data: ledger | PASS | latest summary reports/daily/summary-20261103T074659Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
+| data: freshness | PASS | latest run 20261104T072514Z is 0.8 hours old |
+| data: ledger | PASS | latest summary reports/daily/summary-20261104T072514Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 51 internal link(s) checked, none missing (external links not checked: excluded, see report) |
 | security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
 | security config: financial-research-analyst-agent | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
