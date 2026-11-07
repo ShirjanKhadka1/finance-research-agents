@@ -1,0 +1,5 @@
+# Dev dependencies (Phase 4). Pinned to the version used by CI
+# (.github/workflows/test.yml, matrix job) so local runs and CI run
+# identical versions. This repo is a Markdown agent pack; pytest is
+# its only dev tool (no ruff/mypy — see scripts/qa.py for why).
+pytest==9.2.0
