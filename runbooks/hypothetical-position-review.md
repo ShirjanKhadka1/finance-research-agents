@@ -146,6 +146,32 @@ not published.
    date wherever it is published or simulated. Anything less is
    labelled In progress — never "reviewed".
 
+## The extended gate (Engine 1.5, 2026-11-07)
+
+Where the run needs per-idea limits, the plan is also run through
+the toolkit's `extended_risk_gate()` (`toolkit/position_plan.py`),
+which adds three checks to the 16 above — 19 in total:
+
+17. **Max loss per idea.** This plan's max loss must be at most the
+    per-idea cap in the run contract. Over the cap → BLOCK.
+18. **Sector concentration.** Existing exposure to the plan's sector
+    plus this plan's cost, as a share of the hypothetical portfolio,
+    must be at most the sector cap in the run contract. Over the
+    cap → BLOCK. Context missing (portfolio value, sector exposure)
+    → BLOCK, never passed silently.
+19. **Exit liquidity.** The plan's shares must be at most the
+    maximum participation (default 10%) of typical daily volume,
+    reusing the Time Machine's exit-liquidity guard. Over it →
+    BLOCK. Volume missing → BLOCK.
+
+The extended gate's verdict is PASS only when all 19 pass; its
+`base_gate` field holds the original 16-check result unchanged, so
+a 16-check review and a 19-check review of the same plan can be
+compared. The plan is recorded in the paper ledger
+(`toolkit/paper_ledger.py`) with its verdict and fingerprint —
+paper only, no orders. **A PASS is not a recommendation**, under
+either gate.
+
 ## Attribution
 - Checklist adapted from day-trader-skill, trader-risk (MIT
   licence, commit `3d0f4ef`): 16 named checks with PASS/BLOCK
