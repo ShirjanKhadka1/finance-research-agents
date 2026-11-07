@@ -88,10 +88,10 @@ def test_roster_counts_match_status():
     status = json.loads((ROOT / "ops" / "status.json").read_text(encoding="utf-8"))
     agents = [f for f in (ROOT / "agents").glob("*.md") if f.name != "WHEN-TO-USE.md"]
     runbooks = list((ROOT / "runbooks").glob("*.md"))
-    assert status["agents"] == len(agents) == 28
+    assert status["agents"] == len(agents) == 36
     assert status["runbooks"] == len(runbooks) == 12
     roster = json.loads((ROOT / "agents.json").read_text(encoding="utf-8"))
-    assert len(roster["agents"]) == 29  # 28 agents + 1 guide
+    assert len(roster["agents"]) == 37  # 36 agents + 1 guide
     assert len(roster["runbooks"]) == 12
     for slug in NEPSE_AGENTS:
         assert any(a["slug"] == slug for a in roster["agents"]), slug
