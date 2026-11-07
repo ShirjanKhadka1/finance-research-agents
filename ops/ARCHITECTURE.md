@@ -132,15 +132,16 @@ whose numbers come from the evidence file. When the parent deploys Phase
 (or they should be deleted in a single, separately-approved cleanup) —
 that step is in the deployment manifest as a follow-up, not done here.
 
-## Pointer candidate (not actioned in this phase)
+## Pointer candidate (resolved 7 Nov 2026 — merged, not just pointed at)
 
-`equity-research-playbook`'s four templates are byte-identical to the
-agent pack's `templates/` (diff-verified in Phase 1). The playbook is a
-candidate to become a **pointer/satellite** (its README pointing at the
-pack's templates, with any playbook-only content kept) rather than a
-second copy. This is a content decision for a later step: it is recorded
-here, not executed here, because deleting or gutting a live repo's
-content needs its own approval and a redirect plan for its links.
+`equity-research-playbook`'s four templates were byte-identical to the
+agent pack's `templates/` (diff-verified in Phase 1). On 7 Nov 2026 the
+owner approved merging both: all 8 playbook templates, the BNT
+initiation example, and `scripts/check_template.py` moved into this
+pack (`templates/`, `examples/`, `scripts/check_template.py`,
+`tests/test_check_template.py` — checker tests 6/6 re-verified in the
+new home). The playbook repo is retained for history with a README
+pointer to this pack; it was not deleted, archived, or renamed.
 
 ## What this phase deliberately does NOT do
 
@@ -153,4 +154,5 @@ content needs its own approval and a redirect plan for its links.
   toolkit's autonomous runner exists as code + a cron example only).
 - No live NEPSE feed (no documented free public API verified; the
   licensed feed is paid and not started — owner's funding decision only).
-- No de-duplication of the playbook templates (see pointer candidate).
+- No de-duplication of the playbook templates remained to do — the
+  merge of 7 Nov 2026 resolved it (see pointer candidate, above).
