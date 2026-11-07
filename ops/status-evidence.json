@@ -7,7 +7,7 @@
   "equity-research-playbook": {
     "ci": "GitHub Actions check-numbers workflow (Round 3); template check scripts/check_template.py",
     "live": "Live, public, main",
-    "tests_evidence": "status.json generated 7 Nov 2026 (Merge 2026-11-07): scripts/check_template.py, 6 tests; pytest re-run in a fresh clone, 7 Nov 2026, 6/6 passed",
+    "tests_evidence": "status.json generated 7 Nov 2026 (Merge 2026-11-07): scripts/check_template.py, 6 tests; pytest re-run in a fresh clone, 7 Nov 2026, 6/6 passed. Content merged into finance-research-agents 7 Nov 2026 (templates + example + checker); repo retained for history with a README pointer to the pack",
     "tests_date": "2026-11-07",
     "tests_passed": 6,
     "tests_total": 6
@@ -38,7 +38,7 @@
   "nepal-market-research": {
     "ci": "none",
     "live": "Live, public, main",
-    "tests_evidence": "Markdown repo: no code tests; case study inputs only"
+    "tests_evidence": "Markdown repo: no code tests; case study inputs only. Content merged into nepali-capital-market-research 7 Nov 2026 (BNT case study now case-studies/bnt/); repo retained for history with a README pointer to the scanner repo"
   },
   "nepali-business-opportunities": {
     "ci": "none",
@@ -49,8 +49,8 @@
     "ci": "GitHub Actions Tests + check-numbers workflow (Round 3)",
     "live": "Live, public, main",
     "tests_date": "2026-11-07",
-    "tests_evidence": "pytest run in a fresh clone, scanner/tests/, 7 Nov 2026, 108/108 passed (Merge 2026-11-07; per-file counts in status.json)",
-    "tests_passed": 108,
-    "tests_total": 108
+    "tests_evidence": "pytest run in a fresh clone, scanner/tests/, 7 Nov 2026, 113/113 passed (Phase 1 merge: 108 scanner tests + 5 new BNT case-study integrity tests; per-file counts in status.json)",
+    "tests_passed": 113,
+    "tests_total": 113
   }
 }
