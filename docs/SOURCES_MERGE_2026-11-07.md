@@ -119,3 +119,51 @@ inspection.
   paper's backtest return/Sharpe figures (not this programme's
   results, never quoted as such), and any live-data vendor chain
   (NEPSE stays CSV-only).
+
+## Phase 1 engine 1.8 — agent + skill library (2026-11-07)
+
+### agency-agents — install/convert pattern adapted, NO text copied
+
+- Repo: https://github.com/msitarzewski/agency-agents
+- Licence: **MIT** (Copyright (c) 2025 AgentLand Contributors)
+- What was taken, as a pattern only, reimplemented from scratch in
+  this pack's own words: the agent-file template (frontmatter +
+  Identity / Mission / Rules / Deliverables / Workflow / Success
+  Metrics), the installer that copies agent files into per-tool
+  config dirs (`scripts/install.sh`, extended here to Claude Code,
+  GitHub Copilot, Cursor, Gemini CLI, Codex), and the converter that
+  generates per-tool integration dirs (`scripts/convert.sh`,
+  including a Cursor `.mdc` file and `SKILL.md` mirrors under
+  `skills/<slug>/SKILL.md`). No agency-agents agent text, persona
+  backstory, or claim was copied — all eight new agent personas are
+  original, written for NEPSE sectors from this programme's own
+  sector guidance and sourced Nepal frictions.
+- Where it landed: eight NEW agents (`agents/nepse-bank-analyst.md`,
+  `agents/nepse-hydropower-analyst.md`,
+  `agents/nepse-insurance-analyst.md`,
+  `agents/nepse-microfinance-analyst.md`,
+  `agents/nepse-mutual-fund-nav-analyst.md`,
+  `agents/nepse-ipo-analyst.md`,
+  `agents/nepse-fees-and-tax-analyst.md`,
+  `agents/nepse-content-writer.md`) + eight SKILL.md mirrors +
+  `scripts/convert.sh` + the install.sh tool extension.
+- Rejected from the same source: the 15-tool converter matrix
+  (overkill for this pack's five tools), the desktop app (separate
+  repo, out of scope), and any invented persona backstory
+  ("200+ companies diligenced", "5x returns" — not this programme's
+  evidence, never quoted as such).
+
+### augur — persona YAML pattern (noted, not copied)
+
+- Repo: see ops/teardown/augur.md. Licence: **MIT**.
+- The persona-YAML pattern was reviewed; the eight new agents keep
+  this pack's existing Markdown-frontmatter format instead, so no
+  augur text or structure was copied.
+
+### Duplicates checked and NOT added (2026-11-07, live roster)
+
+- Corporate actions — already `agents/nepse-corporate-actions-analyst.md`.
+- Macro — already `agents/nepse-macro-analyst.md`.
+- Risk analyst — already covered by `agents/nepse-risk-team.md` and
+  `agents/risk-stance-analyst.md`.
+- Orchestrator — already `agents/research-orchestrator.md`.
