@@ -49,7 +49,7 @@ Domain repos ──► nepal-market-research · nepali-capital-market-research
 | `nepali-capital-market-research` | Whole Nepal capital market: agent, guides, templates, NEPSE scanner, reference-site teardown | Domain (Nepal) + Engines (scanner) | Live, public, main | Scanner 70/70 passed (fresh venv, 29 Oct 2026): test_scanner 30 + test_edge_cases 10 + test_signal_labels 17 + test_backtest 13. CI: workflow added in Phase 2 (`.github/workflows/test.yml`, same Python matrix). Scanner is CSV-only, no live NEPSE feed. Generated: [nepali-capital-market-research/status.json](https://github.com/ShirjanKhadka1/nepali-capital-market-research/blob/main/status.json) | https://github.com/ShirjanKhadka1/nepali-capital-market-research |
 | `nepal-market-research` | Sourced NEPSE company case studies, starting with Bottlers Nepal (Terai) | Domain (Nepal) | Live, public, main | No code tests (Markdown). Case study status: **inputs only** — no DCF, no target price. `data/` holds 1 dataset (`bnt-fy2081-82.csv`); 1 case-study folder. Generated: [nepal-market-research/status.json](https://github.com/ShirjanKhadka1/nepal-market-research/blob/main/status.json) | https://github.com/ShirjanKhadka1/nepal-market-research |
 | `nepali-business-opportunities` | 8-sector Nepal business-opportunity scoring framework | Domain (Nepal) | Live, public, main | No code tests (Markdown). Sectors alphabetical, NOT a ranking; rank only on evidence quality ≥ 3. No scored evidence exists yet. Scorecard: 8 criteria, total /40. Generated: [nepali-business-opportunities/status.json](https://github.com/ShirjanKhadka1/nepali-business-opportunities/blob/main/status.json) | https://github.com/ShirjanKhadka1/nepali-business-opportunities |
-| `equity-research-playbook` | Research templates: initiation, earnings, forensic, valuation-sanity, data-first, structured-debate, ledger-control, research-to-use-case | Templates | Live, public, main | 8 templates, checker tests 6/6 passed (29 Oct 2026). **Known duplication:** 4 of its templates are byte-identical to the agent pack's `templates/` (Phase 1, diff-verified) — duplication recorded, not yet resolved. Generated: [equity-research-playbook/status.json](https://github.com/ShirjanKhadka1/equity-research-playbook/blob/main/status.json) | https://github.com/ShirjanKhadka1/equity-research-playbook |
+| `equity-research-playbook` | Research templates: initiation, earnings, forensic, valuation-sanity, data-first, structured-debate, ledger-control, research-to-use-case | Templates | Live, public, main | 8 templates, checker tests 6/6 passed (29 Oct 2026). **Merged 7 Nov 2026:** all 8 templates, the BNT initiation example, and `scripts/check_template.py` now live in this pack (`templates/`, `examples/`, `scripts/`, `tests/` — checker tests 6/6 re-verified in the new home); the 4 previously duplicated templates were byte-identical, so no duplication remains. The playbook repo is retained for history with a README pointer to this pack; it is not deleted, archived, or renamed. Generated: [equity-research-playbook/status.json](https://github.com/ShirjanKhadka1/equity-research-playbook/blob/main/status.json) | https://github.com/ShirjanKhadka1/equity-research-playbook |
 | `ShirjanKhadka1` (profile) | Profile README: hub front door for the programme | Reports / site (hub) | Live, public, main | No code tests. Programme totals: see ops/programme-status.json (this repo's entry regenerated 7 Nov 2026: 19 agents, 11 runbooks; 320 tests across the four suites (195 + 49 + 70 + 6) unchanged). Generated: [ShirjanKhadka1/status.json](https://github.com/ShirjanKhadka1/ShirjanKhadka1/blob/main/status.json) | https://github.com/ShirjanKhadka1 |
 
 shirjankhadka.github.io — separate Nepse Decode project, out of scope, untouched.
@@ -100,9 +100,11 @@ shirjankhadka.github.io — separate Nepse Decode project, out of scope, untouch
    evidence, and let the INTEGRATION.md files be retired in a
    separately-approved cleanup.
 4. **No duplication without a sync mechanism:** the playbook/pack
-   template duplication is the standing example. Until it is resolved
-   (pointer or CI sync check), it is listed here as a known
-   duplication, not hidden.
+   template duplication was the standing example; it was resolved
+   7 Nov 2026 by merging the playbook's templates into this pack
+   (see the `equity-research-playbook` row above). Any new duplication
+   is listed here as a known duplication, not hidden, until resolved
+   the same way.
 5. **Nepal vs international, always labelled:** NEPSE tickers are never
    confused with other exchanges' tickers (NEPSE BNT ≠ NYSE BNT);
    exchange is stated with every ticker. NEPSE data is CSV-only until
