@@ -1,7 +1,7 @@
 # When to use which agent
 
 **This file is a guide, not an agent.** It exists to cut the overlap
-complaint: for each of the 19 agents, one line stating when to use it
+complaint: for each of the 28 agents, one line stating when to use it
 and how it differs from its nearest neighbour. Scopes below are taken
 from each agent file's own frontmatter and mission — no capability
 has been added here. If this guide and an agent file disagree, the
@@ -11,8 +11,8 @@ agent file wins.
 > (`ops/check_roster.py`) counts every `.md` file in `agents/`, so
 > this guide file is listed in `agents.json` and linked in the README
 > only so that unmodified check still passes. It is **not** a 19th
-> agent. The pack has **19 agents** plus this 1 guide file, and
-> **11 runbooks**. See the note under the README roster table.
+> agent. The pack has **28 agents** plus this 1 guide file, and
+> **12 runbooks**. See the note under the README roster table.
 
 | Agent | Use it when… (vs its nearest neighbour) |
 |---|---|
@@ -35,6 +35,15 @@ agent file wins.
 | [Ledger Controller](ledger-controller.md) | No analyst has touched the numbers yet, or a restatement has landed, and inputs need freezing with control totals, cut-off, and a restatement log — vs Data Scout: the Controller certifies frozen inputs, the Scout found them. |
 | [Risk Stance Analyst](risk-stance-analyst.md) | The Bull/Bear debate is done and the veto needs concrete downside: risky, safe, and neutral scenarios, each with an observable trigger — vs Debate Analyst: Risk Stance supplies the scenarios, Debate issues the veto; it never sizes a position and never recommends a trade. |
 | [Filings Analyst](filings-analyst.md) | You are about to trust a number and need it read from the audited filing first, with YoY + TTM tables and DERIVED figures marked — vs Financial Analyst: Filings reads the filed record and hands the numbers on, Financial builds ratios, DuPont, and drivers from tied statements. |
+| [NEPSE Fundamentals Analyst](nepse-fundamentals-analyst.md) | The subject is NEPSE-listed and you need sector-fit fundamentals (banks, hydropower, insurance, microfinance) from filed numbers — vs Financial Analyst: Fundamentals owns the sector metrics, Financial owns the ratios and drivers. |
+| [NEPSE Technical Analyst](nepse-technical-analyst.md) | You need a past-bars read (momentum, volatility, RSI, exit liquidity) on a NEPSE subject — vs Portfolio & Forecast Analyst: Technical reads past bars only, Portfolio forecasts and models. |
+| [NEPSE News & Sentiment Analyst](nepse-news-sentiment-analyst.md) | You need Nepali- and English-language coverage counted by source, date, and stance for a NEPSE subject — vs News & Sentiment Analyst: this one is Nepal-specific and bilingual, the other is general. |
+| [NEPSE Broker-Flow Analyst](nepse-broker-flow-analyst.md) | You have broker buy/sell rows and need concentration and net flow read as indicative only — vs any other analyst: no other agent reads broker flow, and this one never calls it proven smart money. |
+| [NEPSE Macro Analyst](nepse-macro-analyst.md) | You need NRB policy, liquidity, rates, and remittances tied to a NEPSE subject — vs World Market Researcher: Macro is Nepal policy first, World is global regimes. |
+| [NEPSE Corporate Actions Analyst](nepse-corporate-actions-analyst.md) | A bonus, right, dividend, split, or merger affects the subject and per-share figures must be handled — vs Filings Analyst: Corporate Actions owns what the action changes for a holder, Filings owns the filed numbers. |
+| [NEPSE Trader](nepse-trader.md) | The debate is done and the thesis must become one gated hypothetical plan — vs every analyst: the Trader plans, it does no analysis, and it never places an order. |
+| [NEPSE Risk Team](nepse-risk-team.md) | The Trader's plan needs a three-way risk debate (Aggressive / Neutral / Conservative) with a joint verdict — vs Risk Stance Analyst: the Risk Team debates the plan, Risk Stance writes the downside scenarios. |
+| [NEPSE Portfolio Manager](nepse-portfolio-manager.md) | Everything has reported and the study needs its publication gate, with decision-memory reflections read first — vs Debate Analyst: the Portfolio Manager issues the gate, Debate stages the argument. |
 
 ## The overlap rule in one paragraph
 
