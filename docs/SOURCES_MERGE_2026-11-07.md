@@ -93,3 +93,29 @@ inspection.
   `runbooks/hypothetical-position-review.md`, and whether any
   NEPSE/SEBON rule governs same-day round-trip frequency
   (check 16) — both labelled TO VERIFY in the file.
+
+## Phase 1 engines 1.3–1.5 (2026-11-07)
+
+### TradingAgents — patterns adapted, NO code copied
+
+- Repo: https://github.com/TauricResearch/TradingAgents
+- Licence: **Apache-2.0**
+- What was taken, as patterns only, reimplemented from scratch in
+  this pack's own words: the multi-agent role split (4 analysts in
+  parallel → Bull/Bear debate → Trader → three-way risk debate →
+  Portfolio Manager), the decision-memory loop (log every call
+  before its outcome, settle against realised return and alpha vs a
+  benchmark, feed a reflection into the next run), and the
+  point-in-time discipline (decisions scored from the first close
+  *after* the analysis date). No TradingAgents code, text, branding,
+  or model names were copied.
+- Where it landed: nine NEW agents (`agents/nepse-*.md`) + the
+  orchestrator runbook `runbooks/nepse-agent-team.md`; the
+  Portfolio Manager agent's reflections section; the decision-log
+  design mirrored in the toolkit (`toolkit/decision_log.py`).
+- Rejected from the same source: the five-tier
+  Buy/Overweight/Hold/Underweight/Sell rating (NOT adopted — this
+  programme is research-only and never issues a rating), the
+  paper's backtest return/Sharpe figures (not this programme's
+  results, never quoted as such), and any live-data vendor chain
+  (NEPSE stays CSV-only).
