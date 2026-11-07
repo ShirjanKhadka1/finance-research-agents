@@ -96,6 +96,51 @@
       "specialty": "Filed numbers first: audited filings, YoY + TTM, DERIVED marking, lag and one-off flags"
     },
     {
+      "file": "agents/nepse-fundamentals-analyst.md",
+      "slug": "nepse-fundamentals-analyst",
+      "specialty": "NEPSE fundamentals by sector: banks, hydropower, insurance, microfinance \u2014 filed numbers first"
+    },
+    {
+      "file": "agents/nepse-technical-analyst.md",
+      "slug": "nepse-technical-analyst",
+      "specialty": "NEPSE technicals: momentum, trend, volatility, RSI, circuit limits, exit liquidity \u2014 past bars only"
+    },
+    {
+      "file": "agents/nepse-news-sentiment-analyst.md",
+      "slug": "nepse-news-sentiment-analyst",
+      "specialty": "NEPSE news + sentiment in Nepali and English, counted by source, date, stance"
+    },
+    {
+      "file": "agents/nepse-broker-flow-analyst.md",
+      "slug": "nepse-broker-flow-analyst",
+      "specialty": "NEPSE broker flow \u2014 indicative only, never proven smart money"
+    },
+    {
+      "file": "agents/nepse-macro-analyst.md",
+      "slug": "nepse-macro-analyst",
+      "specialty": "Nepal macro for NEPSE: NRB policy, liquidity, rates, remittances, inflation"
+    },
+    {
+      "file": "agents/nepse-corporate-actions-analyst.md",
+      "slug": "nepse-corporate-actions-analyst",
+      "specialty": "NEPSE corporate actions: bonus, rights, dividends, splits, mergers \u2014 filing first"
+    },
+    {
+      "file": "agents/nepse-trader.md",
+      "slug": "nepse-trader",
+      "specialty": "NEPSE Trader step: debate into one gated hypothetical plan \u2014 research only, never an order"
+    },
+    {
+      "file": "agents/nepse-risk-team.md",
+      "slug": "nepse-risk-team",
+      "specialty": "NEPSE Risk team: Aggressive / Neutral / Conservative debate + joint verdict"
+    },
+    {
+      "file": "agents/nepse-portfolio-manager.md",
+      "slug": "nepse-portfolio-manager",
+      "specialty": "NEPSE Portfolio Manager step: reflections, debate, plan, risk verdict \u2192 publication gate"
+    },
+    {
       "file": "agents/WHEN-TO-USE.md",
       "slug": "when-to-use-guide",
       "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 19 agents plus this 1 guide file)"
@@ -212,6 +257,26 @@
         "ledger-controller",
         "use-case-generator",
         "reality-checker"
+      ]
+    },
+    {
+      "file": "runbooks/nepse-agent-team.md",
+      "slug": "nepse-agent-team",
+      "team": [
+        "research-orchestrator",
+        "ledger-controller",
+        "nepse-fundamentals-analyst",
+        "nepse-technical-analyst",
+        "nepse-news-sentiment-analyst",
+        "nepse-broker-flow-analyst",
+        "nepse-macro-analyst",
+        "nepse-corporate-actions-analyst",
+        "debate-analyst",
+        "nepse-trader",
+        "nepse-risk-team",
+        "nepse-portfolio-manager",
+        "reality-checker",
+        "accuracy-auditor"
       ]
     }
   ],
