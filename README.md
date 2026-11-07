@@ -57,7 +57,7 @@ plus the public workflow log plus dated notes under `status/failures/`.
 
 ## 🎨 The roster
 
-18 agents. `agents.json` is the machine-readable roster; this table
+19 agents. `agents.json` is the machine-readable roster; this table
 mirrors it. Generated counts: see `ops/status.json` (produced by
 `ops/generate_counts.py`, checked by `ops/check_numbers.py`).
 
@@ -81,13 +81,14 @@ mirrors it. Generated counts: see `ops/status.json` (produced by
 | 🧩 [Use-Case Generator](agents/use-case-generator.md) | Completed research into killable applied proposals | After a research report exists, never instead of one |
 | 🧾 [Ledger Controller](agents/ledger-controller.md) | Input-ledger integrity: control totals, cut-off, restatements, frozen inputs | Before any analyst touches the numbers, and after any restatement |
 | 🛡️ [Risk Stance Analyst](agents/risk-stance-analyst.md) | Downside scenarios in risky/safe/neutral stances, triggers, never sizing | After the Bull/Bear debate, before the Risk Veto |
+| 📄 [Filings Analyst](agents/filings-analyst.md) | Filed numbers first: audited filings, YoY + TTM, DERIVED marking, lag and one-off flags | Before any press-release or headline claim is trusted |
 
-Guide (not an agent, not counted in the 18): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 18 agents + 1 guide file.
+Guide (not an agent, not counted in the 19): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 19 agents + 1 guide file.
 
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
-10 runbooks.
+11 runbooks.
 
 | Runbook | Team | Job |
 |---|---|---|
@@ -101,6 +102,7 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Agent execution contract](runbooks/agent-execution-contract.md) | Orchestrator → Reality Checker → Accuracy Auditor | Inputs, sources, output schema, citation + provenance checks, falsifier rule for every run |
 | [Structured debate](runbooks/structured-debate.md) | Orchestrator → Ledger Controller → parallel analysts → Debate → Risk Stance → Reality Checker | Parallel analysis, Bull/Bear debate, risk scenarios, publication gate |
 | [Nepal research to use case](runbooks/nepal-research-to-use-case.md) | Nepal Researcher → Data Scout → Ledger Controller → Use-Case Generator → Reality Checker | Completed Nepal research into killable proposals, sectors alphabetical unless evidence ≥ 3 |
+| [Hypothetical position review](runbooks/hypothetical-position-review.md) | Orchestrator → Risk Stance → Reality Checker | Pre-publication / pre-simulation risk gate for a hypothetical plan: 16 checks, PASS/BLOCK, never a recommendation |
 
 ## 📋 What every agent in this pack does (and refuses to do)
 
