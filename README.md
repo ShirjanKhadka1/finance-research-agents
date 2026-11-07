@@ -104,6 +104,36 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Nepal research to use case](runbooks/nepal-research-to-use-case.md) | Nepal Researcher → Data Scout → Ledger Controller → Use-Case Generator → Reality Checker | Completed Nepal research into killable proposals, sectors alphabetical unless evidence ≥ 3 |
 | [Hypothetical position review](runbooks/hypothetical-position-review.md) | Orchestrator → Risk Stance → Reality Checker | Pre-publication / pre-simulation risk gate for a hypothetical plan: 16 checks, PASS/BLOCK, never a recommendation |
 
+## 📝 Templates — 8, with a completeness checker
+
+`templates/` holds the reusable research templates: initiation report,
+earnings review, forensic checklist, valuation sanity check,
+data-first checklist, structured debate, ledger-control checklist,
+and research to use case. The last four moved here from
+[`equity-research-playbook`](https://github.com/ShirjanKhadka1/equity-research-playbook)
+on 7 Nov 2026 (content merge approved by the owner; that repo is
+retained for history with a pointer to this pack). The four that were
+already here are byte-identical to the playbook's copies — no
+duplication remains. Templates are not agents: the pack stays
+19 agents + 8 templates.
+
+`examples/bottlers-nepal-terai-initiation-example.md` is a filled
+initiation template for Bottlers Nepal (Terai) (BNT, NEPSE) —
+labelled on its first lines as an **illustrative filled template,
+NOT a valuation**: no DCF, no target price, no rating, no
+recommendation. Every figure carries its source and period, or is
+labelled UNKNOWN.
+
+`scripts/check_template.py` is the stdlib-only template-completeness
+checker (moved with the templates): it reports missing or empty
+required sections and exits 1 in that case. Its tests live in
+`tests/test_check_template.py` (6 tests):
+
+```sh
+python scripts/check_template.py examples/bottlers-nepal-terai-initiation-example.md
+python -m pytest tests/ -v
+```
+
 ## 📋 What every agent in this pack does (and refuses to do)
 
 **Every agent:**
@@ -135,7 +165,7 @@ Audits the prediction ledger, logs failures, demotes failing models, and checks 
 ```
 agents/            one .md file per agent: identity, mission, workflow, deliverables, rules
 runbooks/          teams of agents for one job, in order
-templates/         initiation report, earnings review, forensic checklist, valuation sanity check
+templates/         8 templates (see Templates below): initiation report, earnings review, forensic checklist, valuation sanity check, data-first checklist, structured debate, ledger-control checklist, research to use case, data-first checklist, structured debate, ledger-control checklist, research to use case (8 templates; the last four moved here from `equity-research-playbook` on 7 Nov 2026 — see Templates below)
 examples/          worked examples on DEMO data only, plus one inputs-only Nepal case study
 docs/worked-example/  full worked example on a real subject: Bottlers Nepal (Terai), NEPSE: BNT, via the structured-debate runbook (research only; frozen as of 2026-10-16; not a runbook, not counted in the 10)
 scripts/           install.sh — copies agent files to your tool's agent directory, nothing else
