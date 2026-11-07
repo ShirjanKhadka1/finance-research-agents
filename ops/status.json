@@ -1,9 +1,9 @@
 {
   "repo": "finance-research-agents",
-  "agents": 19,
-  "runbooks": 11,
+  "agents": 28,
+  "runbooks": 12,
   "templates": 8,
-  "agents_json_entries": 20,
+  "agents_json_entries": 29,
   "guide_files_excluded_from_agents": [
     "WHEN-TO-USE.md"
   ],
