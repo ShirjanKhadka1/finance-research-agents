@@ -1,7 +1,7 @@
 # When to use which agent
 
 **This file is a guide, not an agent.** It exists to cut the overlap
-complaint: for each of the 18 agents, one line stating when to use it
+complaint: for each of the 19 agents, one line stating when to use it
 and how it differs from its nearest neighbour. Scopes below are taken
 from each agent file's own frontmatter and mission — no capability
 has been added here. If this guide and an agent file disagree, the
@@ -11,8 +11,8 @@ agent file wins.
 > (`ops/check_roster.py`) counts every `.md` file in `agents/`, so
 > this guide file is listed in `agents.json` and linked in the README
 > only so that unmodified check still passes. It is **not** a 19th
-> agent. The pack has **18 agents** plus this 1 guide file, and
-> **10 runbooks**. See the note under the README roster table.
+> agent. The pack has **19 agents** plus this 1 guide file, and
+> **11 runbooks**. See the note under the README roster table.
 
 | Agent | Use it when… (vs its nearest neighbour) |
 |---|---|
@@ -34,6 +34,7 @@ agent file wins.
 | [Use-Case Generator](use-case-generator.md) | A research report already exists and you need honest applied next steps, each with a kill criterion — vs Investment Researcher: use cases follow completed research, they never replace it. |
 | [Ledger Controller](ledger-controller.md) | No analyst has touched the numbers yet, or a restatement has landed, and inputs need freezing with control totals, cut-off, and a restatement log — vs Data Scout: the Controller certifies frozen inputs, the Scout found them. |
 | [Risk Stance Analyst](risk-stance-analyst.md) | The Bull/Bear debate is done and the veto needs concrete downside: risky, safe, and neutral scenarios, each with an observable trigger — vs Debate Analyst: Risk Stance supplies the scenarios, Debate issues the veto; it never sizes a position and never recommends a trade. |
+| [Filings Analyst](filings-analyst.md) | You are about to trust a number and need it read from the audited filing first, with YoY + TTM tables and DERIVED figures marked — vs Financial Analyst: Filings reads the filed record and hands the numbers on, Financial builds ratios, DuPont, and drivers from tied statements. |
 
 ## The overlap rule in one paragraph
 
