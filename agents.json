@@ -91,9 +91,14 @@
       "specialty": "Downside scenarios in risky/safe/neutral stances, triggers, never sizing"
     },
     {
+      "file": "agents/filings-analyst.md",
+      "slug": "filings-analyst",
+      "specialty": "Filed numbers first: audited filings, YoY + TTM, DERIVED marking, lag and one-off flags"
+    },
+    {
       "file": "agents/WHEN-TO-USE.md",
       "slug": "when-to-use-guide",
-      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 18 agents plus this 1 guide file)"
+      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 19 agents plus this 1 guide file)"
     }
   ],
   "licence": "MIT",
@@ -187,6 +192,15 @@
         "risk-stance-analyst",
         "reality-checker",
         "accuracy-auditor"
+      ]
+    },
+    {
+      "file": "runbooks/hypothetical-position-review.md",
+      "slug": "hypothetical-position-review",
+      "team": [
+        "research-orchestrator",
+        "risk-stance-analyst",
+        "reality-checker"
       ]
     },
     {
