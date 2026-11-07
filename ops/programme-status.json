@@ -1,13 +1,13 @@
 {
   "generated_by": "ops/generate_programme_status.py (Round 3)",
-  "generated_at": "2026-10-29",
+  "generated_at": "2026-11-07",
   "method": "pytest --collect-only counts and file counts from the checkouts under --repos-root; missing checkouts are null/TO VERIFY, never guessed",
   "repos": {
     "finance-research-agents": {
       "repo": "finance-research-agents",
-      "generated_at": "2026-10-29",
-      "agents": 18,
-      "runbooks": 10
+      "generated_at": "2026-11-07",
+      "agents": 19,
+      "runbooks": 11
     },
     "investment-analyst-toolkit": {
       "repo": "investment-analyst-toolkit",
