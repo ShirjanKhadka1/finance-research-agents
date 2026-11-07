@@ -141,9 +141,49 @@
       "specialty": "NEPSE Portfolio Manager step: reflections, debate, plan, risk verdict \u2192 publication gate"
     },
     {
+      "file": "agents/nepse-bank-analyst.md",
+      "slug": "nepse-bank-analyst",
+      "specialty": "NEPSE banks: CAR, NPL, NIM, cost-to-income, CD ratio, provisioning cover"
+    },
+    {
+      "file": "agents/nepse-hydropower-analyst.md",
+      "slug": "nepse-hydropower-analyst",
+      "specialty": "NEPSE hydropower: PPA, plant load factor, generation vs capacity, construction vs operating"
+    },
+    {
+      "file": "agents/nepse-insurance-analyst.md",
+      "slug": "nepse-insurance-analyst",
+      "specialty": "NEPSE insurance: solvency margin, combined ratio, premium growth, claim ratio"
+    },
+    {
+      "file": "agents/nepse-microfinance-analyst.md",
+      "slug": "nepse-microfinance-analyst",
+      "specialty": "NEPSE microfinance: NPL, cost of funds, opex ratio, portfolio yield vs funding cost"
+    },
+    {
+      "file": "agents/nepse-mutual-fund-nav-analyst.md",
+      "slug": "nepse-mutual-fund-nav-analyst",
+      "specialty": "NEPSE mutual funds: NAV per unit, premium/discount to NAV, expense ratio, holdings"
+    },
+    {
+      "file": "agents/nepse-ipo-analyst.md",
+      "slug": "nepse-ipo-analyst",
+      "specialty": "NEPSE IPOs: prospectus, issue price vs book value, promoter holding, allotment, lock-in"
+    },
+    {
+      "file": "agents/nepse-fees-and-tax-analyst.md",
+      "slug": "nepse-fees-and-tax-analyst",
+      "specialty": "NEPSE costs: broker slabs, SEBON fee, DP charge, CGT, circuit limits, settlement"
+    },
+    {
+      "file": "agents/nepse-content-writer.md",
+      "slug": "nepse-content-writer",
+      "specialty": "Nepali & English research writing: plain language, sourced numbers, no value language"
+    },
+    {
       "file": "agents/WHEN-TO-USE.md",
       "slug": "when-to-use-guide",
-      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 19 agents plus this 1 guide file)"
+      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 36 agents plus this 1 guide file)"
     }
   ],
   "licence": "MIT",
