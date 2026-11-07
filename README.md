@@ -57,7 +57,7 @@ plus the public workflow log plus dated notes under `status/failures/`.
 
 ## 🎨 The roster
 
-19 agents. `agents.json` is the machine-readable roster; this table
+28 agents. `agents.json` is the machine-readable roster; this table
 mirrors it. Generated counts: see `ops/status.json` (produced by
 `ops/generate_counts.py`, checked by `ops/check_numbers.py`).
 
@@ -82,13 +82,22 @@ mirrors it. Generated counts: see `ops/status.json` (produced by
 | 🧾 [Ledger Controller](agents/ledger-controller.md) | Input-ledger integrity: control totals, cut-off, restatements, frozen inputs | Before any analyst touches the numbers, and after any restatement |
 | 🛡️ [Risk Stance Analyst](agents/risk-stance-analyst.md) | Downside scenarios in risky/safe/neutral stances, triggers, never sizing | After the Bull/Bear debate, before the Risk Veto |
 | 📄 [Filings Analyst](agents/filings-analyst.md) | Filed numbers first: audited filings, YoY + TTM, DERIVED marking, lag and one-off flags | Before any press-release or headline claim is trusted |
+| 🇳🇵 [NEPSE Fundamentals Analyst](agents/nepse-fundamentals-analyst.md) | NEPSE fundamentals by sector: banks, hydropower, insurance, microfinance — filed numbers first | A NEPSE-listed company, by sector |
+| 📈 [NEPSE Technical Analyst](agents/nepse-technical-analyst.md) | NEPSE technicals: momentum, trend, volatility, RSI, circuit limits, exit liquidity — past bars only | A past-bars read on a NEPSE subject |
+| 📰 [NEPSE News & Sentiment Analyst](agents/nepse-news-sentiment-analyst.md) | NEPSE news + sentiment in Nepali and English, counted by source, date, stance | Inside a NEPSE study, before the debate step |
+| 🔀 [NEPSE Broker-Flow Analyst](agents/nepse-broker-flow-analyst.md) | NEPSE broker flow — indicative only, never proven smart money | When broker buy/sell rows exist for the subject |
+| 🏛️ [NEPSE Macro Analyst](agents/nepse-macro-analyst.md) | Nepal macro for NEPSE: NRB policy, liquidity, rates, remittances, inflation | Placing a NEPSE subject in Nepal macro context |
+| 🎁 [NEPSE Corporate Actions Analyst](agents/nepse-corporate-actions-analyst.md) | NEPSE corporate actions: bonus, rights, dividends, splits, mergers — filing first | When an action affects the subject |
+| 🧑‍💼 [NEPSE Trader](agents/nepse-trader.md) | NEPSE Trader step: debate into one gated hypothetical plan — research only, never an order | After the Bull/Bear debate, before the Risk team |
+| 🛡️ [NEPSE Risk Team](agents/nepse-risk-team.md) | NEPSE Risk team: Aggressive / Neutral / Conservative debate + joint verdict | After the Trader's plan, before the gate |
+| 🎯 [NEPSE Portfolio Manager](agents/nepse-portfolio-manager.md) | NEPSE Portfolio Manager step: reflections, debate, plan, risk verdict → publication gate | Last step: the publication gate, with the decision logged |
 
-Guide (not an agent, not counted in the 19): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 19 agents + 1 guide file.
+Guide (not an agent, not counted in the 28): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 28 agents + 1 guide file.
 
 ## 🎯 Runbooks — teams that work together
 
 A runbook is a team for one job, in order. See `runbooks/`.
-11 runbooks.
+12 runbooks.
 
 | Runbook | Team | Job |
 |---|---|---|
@@ -103,6 +112,37 @@ A runbook is a team for one job, in order. See `runbooks/`.
 | [Structured debate](runbooks/structured-debate.md) | Orchestrator → Ledger Controller → parallel analysts → Debate → Risk Stance → Reality Checker | Parallel analysis, Bull/Bear debate, risk scenarios, publication gate |
 | [Nepal research to use case](runbooks/nepal-research-to-use-case.md) | Nepal Researcher → Data Scout → Ledger Controller → Use-Case Generator → Reality Checker | Completed Nepal research into killable proposals, sectors alphabetical unless evidence ≥ 3 |
 | [Hypothetical position review](runbooks/hypothetical-position-review.md) | Orchestrator → Risk Stance → Reality Checker | Pre-publication / pre-simulation risk gate for a hypothetical plan: 16 checks, PASS/BLOCK, never a recommendation |
+| [NEPSE agent team](runbooks/nepse-agent-team.md) | Orchestrator → Ledger Controller → six NEPSE analysts (parallel) → Debate → Trader → Risk team → Portfolio Manager → Reality Checker → Accuracy Auditor | Full NEPSE study: parallel analysts, Bull/Bear debate, gated hypothetical plan, three-way risk debate, publication gate with decision logging |
+
+## 🇳🇵 NEPSE agent team (Engine 1.3, 2026-11-07)
+
+Nine new agents form the NEPSE team (see the roster above), run by
+`runbooks/nepse-agent-team.md`: six analysts in parallel
+(Fundamentals with sector guidance for banks, hydropower, insurance,
+and microfinance; Technical; News & Sentiment in Nepali and English;
+Broker-flow, labelled INDICATIVE ONLY throughout; Macro on NRB
+policy, liquidity, rates, and remittances; Corporate Actions), then
+a Bull vs Bear debate (existing Debate Analyst + structured-debate
+runbook), then Trader (one gated hypothetical plan), Risk team
+(Aggressive / Neutral / Conservative), and Portfolio Manager (reads
+the decision-memory reflections first, issues the publication gate,
+logs the decision). The pattern is adapted from TradingAgents
+(Apache-2.0) — reimplemented in this pack's own words, with its
+five-tier Buy/Overweight/Hold/Underweight/Sell rating NOT adopted.
+
+Every NEPSE agent states it works with any LLM, including a free
+local Ollama — and with no LLM at all, via the toolkit's
+deterministic no-LLM rules mode
+(`investment-analyst-toolkit/toolkit/rules_mode.py`, zero API keys,
+offline). No API keys or key-requiring endpoints are hard-coded
+anywhere in the pack.
+
+Decision memory (Engine 1.4) lives in the toolkit
+(`toolkit/decision_log.py`): every call logged before its outcome,
+settled after its horizon against realised return and alpha vs the
+NEPSE index (index source named, never invented), and scored on the
+public track record — which starts at **n=0, no calls settled yet**
+(see the toolkit's `docs/track-record.md`).
 
 ## 📝 Templates — 8, with a completeness checker
 
@@ -115,7 +155,7 @@ on 7 Nov 2026 (content merge approved by the owner; that repo is
 retained for history with a pointer to this pack). The four that were
 already here are byte-identical to the playbook's copies — no
 duplication remains. Templates are not agents: the pack stays
-19 agents + 8 templates.
+28 agents + 8 templates.
 
 `examples/bottlers-nepal-terai-initiation-example.md` is a filled
 initiation template for Bottlers Nepal (Terai) (BNT, NEPSE) —
