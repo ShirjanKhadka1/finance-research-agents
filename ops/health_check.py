@@ -147,10 +147,15 @@ def freshness_of(stamp, now):
 
 
 def extract_test_counts(readme_text):
-    """All 'N/N tests passing' pairs found in a README, as (n, total)."""
+    """All 'N/N tests passing' pairs found in a README, as (n, total).
+
+    The trailing 'passing' is optional: the equity-research-playbook
+    README phrases its count as 'tested by 6/6 tests' (no 'passing'),
+    and the checker must read that count rather than report no count.
+    """
     return [
         (int(a), int(b))
-        for a, b in re.findall(r"(\d+)\s*/\s*(\d+)\s+tests passing",
+        for a, b in re.findall(r"(\d+)\s*/\s*(\d+)\s+tests(?:\s+passing)?",
                                 readme_text or "")
     ]
 
@@ -221,6 +226,36 @@ def check_counts(repo_root, live):
     return results
 
 
+def pick_latest_run(runs, repo):
+    """Latest completed, meaningful run for a repo, or None.
+
+    Filters, in order: must be completed (a conclusion exists), on
+    main, not from dependabot[bot], not the health workflow judging
+    itself, and not a run whose conclusion is 'skipped'. The last
+    filter is the 31 Oct-7 Nov false positive: the 'Failure alert'
+    workflow is if: failure()-gated, so when the workflow it watches
+    succeeds its run concludes 'skipped' by design -- and as the
+    latest run it made the repo read as failing. A skipped run says
+    nothing about the repo's CI health, so it is ignored and the
+    latest non-skipped run is judged instead. A genuinely failed
+    alert run (conclusion 'failure') is still judged: it means the
+    alerting path itself is broken.
+    """
+    completed = [r for r in runs
+                 if r.get("conclusion") and r.get("head_branch") == "main"
+                 and (r.get("triggering_actor") or {}).get("login") != "dependabot[bot]"
+                 and (r.get("actor") or {}).get("login") != "dependabot[bot]"
+                 # The health workflow must not judge itself: a failing
+                 # health run would otherwise make every later health
+                 # run fail on its predecessor forever, even after the
+                 # underlying issue is fixed. The health report itself
+                 # is the evaluation for this repo.
+                 and not (repo == "finance-research-agents"
+                          and r.get("name") == "Daily health check")
+                 and r.get("conclusion") != "skipped"]
+    return completed[0] if completed else None
+
+
 def check_workflows(live):
     """Latest COMPLETED Actions run per workflow repo. Returns results."""
     results = []
@@ -242,27 +277,16 @@ def check_workflows(live):
                             "(roster, counts, links)"))
             continue
         data, err = fetch_json(
-            "https://api.github.com/repos/%s/%s/actions/runs?per_page=5"
+            "https://api.github.com/repos/%s/%s/actions/runs?per_page=10"
             % (OWNER, repo))
         if err:
             results.append((repo, "UNKNOWN", err))
             continue
-        completed = [r for r in data.get("workflow_runs", [])
-                     if r.get("conclusion") and r.get("head_branch") == "main"
-                     and (r.get("triggering_actor") or {}).get("login") != "dependabot[bot]"
-                     and (r.get("actor") or {}).get("login") != "dependabot[bot]"
-                     # The health workflow must not judge itself: a failing
-                     # health run would otherwise make every later health
-                     # run fail on its predecessor forever, even after the
-                     # underlying issue is fixed. The health report itself
-                     # is the evaluation for this repo.
-                     and not (repo == "finance-research-agents"
-                              and r.get("name") == "Daily health check")]
-        if not completed:
+        run = pick_latest_run(data.get("workflow_runs", []), repo)
+        if run is None:
             results.append((repo, "UNKNOWN",
-                            "no completed workflow run found"))
+                            "no completed non-skipped workflow run found"))
             continue
-        run = completed[0]
         conclusion = run["conclusion"]
         detail = "latest completed run: %s -> %s (%s)" % (
             run.get("name"), conclusion, run.get("html_url"))
@@ -488,6 +512,26 @@ def selftest():
     assert freshness_of("bogus", now)[0] == "UNKNOWN"
     assert extract_test_counts("Live — 124/124 tests passing, CI") == [(124, 124)]
     assert extract_test_counts("no counts here") == []
+    # Playbook README phrasing: 'tested by 6/6 tests' (no 'passing').
+    assert extract_test_counts("8 templates, tested by 6/6 tests") == [(6, 6)]
+    # Skipped alert runs are ignored: the latest run is the skipped
+    # Failure alert, the judged run is the next (successful) one.
+    skipped_alert = {"name": "Failure alert", "conclusion": "skipped",
+                     "head_branch": "main", "actor": {"login": "github-actions[bot]"},
+                     "triggering_actor": {"login": "github-actions[bot]"},
+                     "html_url": "https://example.invalid/1"}
+    good = {"name": "Tests", "conclusion": "success",
+            "head_branch": "main", "actor": {"login": "github-actions[bot]"},
+            "triggering_actor": {"login": "github-actions[bot]"},
+            "html_url": "https://example.invalid/2"}
+    assert pick_latest_run([skipped_alert, good],
+                           "investment-analyst-toolkit") is good
+    assert pick_latest_run([skipped_alert],
+                           "investment-analyst-toolkit") is None
+    # A failed (not skipped) alert run is still judged, not ignored.
+    failed_alert = dict(skipped_alert, conclusion="failure")
+    assert pick_latest_run([failed_alert, good],
+                           "investment-analyst-toolkit") is failed_alert
     checks = [("roster", "PASS", "ok"), ("freshness", "UNKNOWN", "no run yet")]
     report = render_report(checks, now)
     assert "Overall: INCOMPLETE" in report
