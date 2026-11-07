@@ -41,8 +41,9 @@ as evidence about fundamentals.
 
 ## Outputs
 1. **Item list:** every item kept, with headline/claim,
-   source, publication date, and stance
-   (positive / negative / neutral / unclear). Items
+   source, publication date, stance
+   (positive / negative / neutral / unclear), type tag, and
+   material flag (see News discipline below). Items
    screened out as irrelevant are counted, not listed as
    evidence — and the count of screened-out items is
    reported, so the reader can see the filter worked.
@@ -93,16 +94,95 @@ as evidence about fundamentals.
 7. **Research only.** No buy/sell/hold recommendation, no
    price forecast, no guaranteed outcome. Sentiment that
    "predicts" a move is a claim you refuse to make.
+8. **Dedup state.** Each item is shown once. An item that
+   reappears (syndication, a repost, the same story carried by
+   another outlet) is recorded once, under its earliest
+   publication, and later copies are counted as duplicates,
+   not as new items. A stance count inflated by duplicates is
+   not a result.
+9. **Filings beat headlines.** Where a filing and a headline
+   disagree, the filing wins and the disagreement is flagged.
+   A headline is never cited as evidence for a number the
+   filing states differently; the Filings Analyst's tables are
+   the numbers, headlines are the coverage of them.
+10. **Tag every item by type.** Each kept item carries one type
+    tag: filing, earnings, corporate action, macro, market,
+    opinion, or rumour. An item whose type cannot be fixed is
+    tagged unclear, never forced into a type.
+11. **Material items are marked "!".** An item that would change
+    a reader's view of the subject is flagged "!" with its type
+    tag. The mapping below is adapted to Nepal and is labelled
+    TO VERIFY where it is not yet sourced — it is a working
+    map, not a sourced rule:
+
+    | "!" item | Nepal analogue | Status |
+    |---|---|---|
+    | Material disclosure | SEBON / NEPSE material disclosure | TO VERIFY |
+    | Results / earnings | Quarterly / annual results filing | TO VERIFY |
+    | Dividend / bonus / rights | AGM / dividend / book-closure notice | TO VERIFY |
+    | Leadership / auditor change | Board / auditor change disclosure | TO VERIFY |
+    | Regulatory action | SEBON / NEPSE notice or direction | TO VERIFY |
+    | Merger / acquisition | Merger / acquisition disclosure | TO VERIFY |
+
+    A "!" item is listed first in the item list, with its source
+    opened and quoted (see rule 13). An item is never marked "!"
+    on the strength of its headline alone.
+12. **MOVING threshold: 3% vs prior close.** A price move is
+    called MOVING only when it is at least 3% against the prior
+    close, stated with the close it is measured against. A move
+    below 3% is reported as a move of its stated size, never as
+    MOVING. The threshold is a reporting convention, not a
+    claim that 3% is significant for every company.
+13. **Headlines are leads, not facts.** Open the source, quote
+    it, and link it. A headline is never summarised from the
+    headline alone, and a paywalled story you could not read is
+    never summarised at all — it is listed as unread, with its
+    source and date, and excluded from the stance count. A
+    summary of an unread story is fabrication.
+
+## News discipline — attribution
+- Rules 8–13 adapt the news discipline of day-trader-skill,
+  trader-news (MIT licence, commit `3d0f4ef`): dedup, filings
+  beat headlines, type tags, material-item mapping, a MOVING
+  threshold, and "headlines are leads, not facts". Adapted to a
+  research-only pack: the 8-K item mapping is replaced by the
+  Nepal analogue table above (TO VERIFY where unsourced), and
+  no item — material or MOVING — is ever a signal to act. See
+  `docs/SOURCES_MERGE_2026-11-07.md`.
+
+## Optional local sentiment step (design only, no code)
+- An OPTIONAL step, run locally with no key and no service: score
+  each kept headline with a small word lexicon (positive words
+  score up, negative words score down), fall back to keyword
+  matching where the lexicon scores nothing, and report the
+  result as BULLISH / BEARISH / NEUTRAL with a confidence and
+  headline counts (how many headlines scored each way, out of
+  how many kept). The design is adapted from FinceptTerminal's
+  news-sentiment pipeline (GNU AGPL-3.0, commit `7716ee8`) —
+  ideas only, no Fincept code or text copied. There is no code
+  for this step in this repo; the design is recorded here so a
+  local implementation can be built from scratch and checked
+  against it. The step is optional: a run without it reports
+  stance counts by hand, as in the Workflow above, and says so.
+- Limits of the step, stated every time it is used: a lexicon
+  scores words, not meaning — it cannot read irony, negation,
+  or context, and its confidence is a count of scored words,
+  not a probability. Its output is a read of the headlines
+  collected, never a signal, never evidence about fundamentals,
+  and never a price direction.
 
 ## Workflow
 1. Fix subject, exchange, period, as-of date. Record
    the sources to be used.
 2. Collect items. Screen for relevance; count screened-
-   out items.
+   out items. Dedup: an item already collected is recorded
+   once, later copies counted as duplicates.
 3. Assign stance to kept items (positive / negative /
    neutral / unclear). "Unclear" is a valid stance —
    forcing an unclear item into positive or negative is
-   fabrication.
+   fabrication. Tag each kept item by type and flag material
+   items "!" per the News discipline above; open the source
+   of every "!" item and quote it.
 4. Write the news read, then the sentiment read, then
    the limits. Hand all three to the debate step; the
    debate may use the news read as evidence and the
@@ -131,6 +211,12 @@ as evidence about fundamentals.
 ## Success metrics
 - Every kept item has source + date + stance; every
   screened-out item is counted.
+- Every kept item is shown once (duplicates counted, not
+  listed twice), carries a type tag, and material items are
+  flagged "!" with the source opened and quoted.
+- No paywalled story that could not be read is summarised;
+  unread items are listed as unread and excluded from the
+  stance count.
 - Stance counts always carry their denominator and period.
 - News and sentiment reported separately, with the
   sentiment paragraph ending in its limit.
