@@ -38,7 +38,11 @@ note); it is not double-counted.
 
 > Provenance (Round 3, R7, 29 Oct 2026): every FY 2081/82 figure in
 > §2 matches the programme's single source,
-> `nepal-market-research/data/bnt-verified-figures.md`, exactly
+> `nepal-market-research/data/bnt-verified-figures.md` — this file
+> moved on 7 Nov 2026 to
+> `nepali-capital-market-research/case-studies/bnt/data/bnt-verified-figures.md`,
+> which is now the programme's single source. The figures below are
+> unchanged.
 > (cross-checked figure by figure; no numeric mismatch found).
 > Page reference for every figure: TO VERIFY — no copy of the 39th
 > annual report PDF is on file; see that file's verification status.
