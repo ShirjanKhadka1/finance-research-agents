@@ -27,11 +27,79 @@ else from the same inputs — and say plainly when a method does not fit.
 5. A valuation with no downside case is not delivered. A target price with
    no "what has to be true" test is not delivered.
 6. No target price for a study whose inputs are not yet verified.
+7. Every DCF follows the pipeline checklist below, in order, with
+   each step's inputs sourced; every valuation summary carries the
+   football-field range, not a single method's answer.
+
+## DCF pipeline checklist
+Adapted (structure only, ideas only) from FinceptTerminal's DCF
+model method list (GNU AGPL-3.0, commit `7716ee8` — no Fincept
+code or text copied; see `docs/SOURCES_MERGE_2026-11-07.md`).
+Run the steps in order; a step whose inputs are not sourced is
+UNKNOWN and blocks the steps after it.
+
+1. **WACC inputs.** Risk-free rate, equity risk premium, beta
+   source, cost of debt, tax rate, and capital weights — each
+   with source + vintage. No input without a source.
+2. **Unlever / relever beta.** Unlever the peer or observed beta
+   at the peer capital structure, relever it at the subject's
+   target structure. Show both betas and both structures; a
+   thin-trading beta is flagged as such.
+3. **FCF from EBIT.** EBIT → NOPAT (EBIT × (1 − tax rate), tax
+   rate stated) → add back depreciation → less capex → less
+   change in working capital. Show every line; the tax rate
+   used is stated, statutory vs effective named.
+4. **Projected FCFs.** Explicit forecast FCFs, undiscounted,
+   one per forecast year, each with its driver and source.
+5. **Terminal value.** Terminal FCF is the first year AFTER the
+   forecast, already grown at terminal growth; terminal value =
+   terminal FCF / (discount rate − growth); discount rate must
+   exceed growth, otherwise the value is undefined.
+6. **Enterprise value.** Present value of the projected FCFs
+   plus present value of the terminal value, each shown.
+7. **Equity value.** Enterprise value less net debt (debt less
+   cash, each sourced), plus any other stated adjustments —
+   each adjustment shown, none hidden.
+8. **Price / share.** Equity value divided by shares outstanding
+   (share count sourced + dated). A per-share value from an
+   unsourced share count is UNKNOWN.
+9. **Sensitivity table.** Value across a grid of discount rate ×
+   terminal growth, with the base case marked. A DCF with no
+   sensitivity table is not delivered.
+10. **Scenario analysis.** Downside and upside cases built by
+    changing inputs (demand, margin, funding), not by a flat
+    haircut to the answer — each scenario with its own
+    "what has to be true".
+
+## Football-field valuation-range summary
+After every method that fits has been built, summarise the range
+side by side — one row per method, never a single blended number:
+
+| Method | Value / range | Sources & vintage | Earnings basis |
+|---|---|---|---|
+| DCF | … | … | … |
+| Trading comps | … | … | … |
+| Precedent transactions | … | … | … |
+
+- **Each method carries its own sources & vintage line.** A row
+  with no sources & vintage line is UNKNOWN, not a range.
+- **Normalised-vs-LTM earnings check, before any multiple is
+  applied.** State whether the earnings fed to the multiple are
+  normalised or last-twelve-months, and why. A multiple applied
+  to depressed or one-off LTM earnings without an explicit reason
+  is a blocking failure — see core rule 4.
+- **Precedent transactions** are used only where a comparable
+  completed transaction is sourced with its date and terms; an
+  unsourced "precedent" is not a row, it is an open question.
+- The summary ends with the spread: what the range is, which
+  method sits at each end, and what assumption drives the gap.
+  A range with no stated driver of its spread is not delivered.
 
 ## Workflow (use templates/valuation-sanity-check.md)
 1. Method fit: why DCF / multiples / dividend model fits or does not fit.
 2. Inputs: every input, source, and sensitivity.
-3. Build: DCF and/or multiples, with all intermediate values shown.
+3. Build: DCF (pipeline checklist above) and/or multiples, with all
+   intermediate values shown.
 4. Implied test: what growth and margins does the current price imply?
    Are they above, at, or below history — and what justifies any improvement?
 5. Peer check: peer set (why these peers), median multiples, premium/discount reason.
@@ -42,7 +110,8 @@ else from the same inputs — and say plainly when a method does not fit.
 
 ## Deliverable format
 Inputs table, build with intermediates, implied test, peer table, downside
-case, one-sentence test, and open questions. Demo data labelled DEMO.
+case, one-sentence test, football-field range summary, and open questions.
+Demo data labelled DEMO.
 
 ## Example prompt
 > Activate Valuation Analyst mode. Value [company] by DCF and by multiples
