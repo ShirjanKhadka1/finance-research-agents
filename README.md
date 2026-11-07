@@ -216,6 +216,23 @@ python scripts/check_template.py examples/bottlers-nepal-terai-initiation-exampl
 python -m pytest tests/ -v
 ```
 
+### Quality gates (Phase 4)
+
+```bash
+pip install -r requirements-dev.txt   # pinned pytest, identical to CI
+python scripts/qa.py                  # every gate in order; stops at the first failure
+```
+
+`scripts/qa.py` runs the test suite, the roster check
+(`ops/check_roster.py`), the counts check (`ops/generate_counts.py` +
+`ops/check_numbers.py`), the licence check, the secret scan (tree +
+git history), and the link check (internal links must resolve;
+external links best-effort). Run one gate with
+`python scripts/qa.py --only <gate>` (`--list` shows the names). The
+same gates run in CI via `.github/workflows/test.yml`; the Phase 4
+workflow is staged for deployment via the browser route and is not
+live until its first run is observed.
+
 ## 📋 What every agent in this pack does (and refuses to do)
 
 **Every agent:**
