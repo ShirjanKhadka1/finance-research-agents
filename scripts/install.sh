@@ -4,7 +4,10 @@
 # Usage:
 #   ./scripts/install.sh --tool claude-code [--agent <slug> ...] [--dry-run] [--list]
 #   ./scripts/install.sh --tool copilot [--agent <slug> ...] [--dry-run]
+#   ./scripts/install.sh --tool cursor|gemini|codex [--agent <slug> ...] [--dry-run]
 #   ./scripts/install.sh --list
+# Skills live in skills/<slug>/SKILL.md; install them with
+# ./scripts/convert.sh, which places agent + skill files per tool.
 #
 # Runbook-team install pattern: a runbook names a team, it does not
 # install itself. Install the agents the runbook names, one --agent
@@ -51,7 +54,10 @@ done
 case "$TOOL" in
   claude-code) DEST="$HOME/.claude/agents" ;;
   copilot) DEST="$HOME/.github/agents" ;;
-  *) echo "Unknown tool: $TOOL (use claude-code or copilot)" >&2; exit 1 ;;
+  cursor) DEST="$HOME/.cursor/agents" ;;
+  gemini) DEST="$HOME/.gemini/agents" ;;
+  codex) DEST="$HOME/.codex/agents" ;;
+  *) echo "Unknown tool: $TOOL (use claude-code, copilot, cursor, gemini or codex)" >&2; exit 1 ;;
 esac
 
 if [ "${#AGENTS[@]}" -gt 0 ]; then
