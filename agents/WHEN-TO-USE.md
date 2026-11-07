@@ -1,7 +1,7 @@
 # When to use which agent
 
 **This file is a guide, not an agent.** It exists to cut the overlap
-complaint: for each of the 28 agents, one line stating when to use it
+complaint: for each of the 36 agents, one line stating when to use it
 and how it differs from its nearest neighbour. Scopes below are taken
 from each agent file's own frontmatter and mission — no capability
 has been added here. If this guide and an agent file disagree, the
@@ -10,8 +10,8 @@ agent file wins.
 > Roster note, stated honestly: the roster check
 > (`ops/check_roster.py`) counts every `.md` file in `agents/`, so
 > this guide file is listed in `agents.json` and linked in the README
-> only so that unmodified check still passes. It is **not** a 19th
-> agent. The pack has **28 agents** plus this 1 guide file, and
+> only so that unmodified check still passes. It is **not** a 37th
+> agent. The pack has **36 agents** plus this 1 guide file, and
 > **12 runbooks**. See the note under the README roster table.
 
 | Agent | Use it when… (vs its nearest neighbour) |
@@ -44,6 +44,14 @@ agent file wins.
 | [NEPSE Trader](nepse-trader.md) | The debate is done and the thesis must become one gated hypothetical plan — vs every analyst: the Trader plans, it does no analysis, and it never places an order. |
 | [NEPSE Risk Team](nepse-risk-team.md) | The Trader's plan needs a three-way risk debate (Aggressive / Neutral / Conservative) with a joint verdict — vs Risk Stance Analyst: the Risk Team debates the plan, Risk Stance writes the downside scenarios. |
 | [NEPSE Portfolio Manager](nepse-portfolio-manager.md) | Everything has reported and the study needs its publication gate, with decision-memory reflections read first — vs Debate Analyst: the Portfolio Manager issues the gate, Debate stages the argument. |
+| [NEPSE Bank Analyst](nepse-bank-analyst.md) | You need A NEPSE-listed bank needs a funding-and-asset-quality read, not a generic ratio set — vs NEPSE Fundamentals Analyst: Fundamentals owns the sector metrics across sectors, Bank owns the bank metrics in depth. |
+| [NEPSE Hydropower Analyst](nepse-hydropower-analyst.md) | You need A NEPSE-listed hydropower company needs a PPA-and-generation read, not a generic ratio set — vs NEPSE Fundamentals Analyst: Fundamentals owns the sector metrics across sectors, Hydropower owns the PPA and generation metrics in depth. |
+| [NEPSE Insurance Analyst](nepse-insurance-analyst.md) | You need A NEPSE-listed insurer needs an underwriting-and-solvency read, not a generic ratio set — vs NEPSE Fundamentals Analyst: Fundamentals owns the sector metrics across sectors, Insurance owns the underwriting metrics in depth. |
+| [NEPSE Microfinance Analyst](nepse-microfinance-analyst.md) | You need A NEPSE-listed microfinance institution needs a credit-cost-and-funding read, not a generic ratio set — vs NEPSE Fundamentals Analyst: Fundamentals owns the sector metrics across sectors, Microfinance owns the credit-cost and funding metrics in depth. |
+| [NEPSE Mutual Fund & NAV Analyst](nepse-mutual-fund-nav-analyst.md) | You need A NEPSE-listed mutual fund needs a NAV-and-discount read, not a company read — vs NEPSE Fundamentals Analyst: Fundamentals reads companies, this agent reads funds — NAV, discount, and holdings, never company ratios. |
+| [NEPSE IPO Analyst](nepse-ipo-analyst.md) | You need An IPO or a recent listing needs a prospectus read before any price read exists — vs NEPSE Fundamentals Analyst: Fundamentals reads filed operating history, IPO reads the prospectus and the issue terms — a company with no listing history has no price read. |
+| [NEPSE Fees & Tax Analyst](nepse-fees-and-tax-analyst.md) | You need Any cost, tax, or settlement question on a NEPSE trade needs sourced figures, not remembered ones — vs NEPSE Trader: the Trader builds the hypothetical plan, this agent prices what the plan would cost and when it would settle — it never sizes or approves the plan. |
+| [NEPSE Content Writer](nepse-content-writer.md) | You need A completed study needs writing a general reader can follow, in Nepali or English — vs Nepal Market Researcher: the Researcher produces the sourced study, the Writer turns it into readable prose — the Writer never adds a number the study does not contain. |
 
 ## The overlap rule in one paragraph
 
