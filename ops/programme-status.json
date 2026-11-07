@@ -1,46 +1,46 @@
 {
-  "generated_by": "ops/generate_programme_status.py (Round 3)",
-  "generated_at": "2026-11-07",
-  "method": "pytest --collect-only counts and file counts from the checkouts under --repos-root; missing checkouts are null/TO VERIFY, never guessed",
-  "repos": {
-    "finance-research-agents": {
-      "repo": "finance-research-agents",
-      "generated_at": "2026-11-07",
-      "agents": 28,
-      "runbooks": 12
-    },
-    "investment-analyst-toolkit": {
-      "repo": "investment-analyst-toolkit",
-      "generated_at": "2026-11-07",
-      "version": "0.8.0",
-      "tests": 338
-    },
-    "financial-research-analyst-agent": {
-      "repo": "financial-research-analyst-agent",
-      "generated_at": "2026-11-07",
-      "tests": 49
-    },
-    "nepali-capital-market-research": {
-      "repo": "nepali-capital-market-research",
-      "generated_at": "2026-11-07",
-      "scanner_tests": 113
-    },
-    "equity-research-playbook": {
-      "repo": "equity-research-playbook",
-      "generated_at": "2026-11-07",
-      "tests": 6,
-      "templates": 8
-    },
-    "nepal-market-research": {
-      "repo": "nepal-market-research",
-      "generated_at": "2026-11-07",
-      "case_studies": 1,
-      "datasets": 1
-    },
-    "nepali-business-opportunities": {
-      "repo": "nepali-business-opportunities",
-      "generated_at": "2026-11-07",
-      "sectors": 8
-    }
+ "generated_by": "ops/generate_programme_status.py (Round 3)",
+ "generated_at": "2026-11-07",
+ "method": "pytest --collect-only counts and file counts from the checkouts under --repos-root; missing checkouts are null/TO VERIFY, never guessed",
+ "repos": {
+  "finance-research-agents": {
+   "repo": "finance-research-agents",
+   "generated_at": "2026-11-07",
+   "agents": 36,
+   "runbooks": 12
+  },
+  "investment-analyst-toolkit": {
+   "repo": "investment-analyst-toolkit",
+   "generated_at": "2026-11-07",
+   "version": "0.8.0",
+   "tests": 338
+  },
+  "financial-research-analyst-agent": {
+   "repo": "financial-research-analyst-agent",
+   "generated_at": "2026-11-07",
+   "tests": 49
+  },
+  "nepali-capital-market-research": {
+   "repo": "nepali-capital-market-research",
+   "generated_at": "2026-11-07",
+   "scanner_tests": 113
+  },
+  "equity-research-playbook": {
+   "repo": "equity-research-playbook",
+   "generated_at": "2026-11-07",
+   "tests": 6,
+   "templates": 8
+  },
+  "nepal-market-research": {
+   "repo": "nepal-market-research",
+   "generated_at": "2026-11-07",
+   "case_studies": 1,
+   "datasets": 1
+  },
+  "nepali-business-opportunities": {
+   "repo": "nepali-business-opportunities",
+   "generated_at": "2026-11-07",
+   "sectors": 8
   }
+ }
 }
