@@ -6,14 +6,14 @@
     "finance-research-agents": {
       "repo": "finance-research-agents",
       "generated_at": "2026-11-07",
-      "agents": 19,
-      "runbooks": 11
+      "agents": 28,
+      "runbooks": 12
     },
     "investment-analyst-toolkit": {
       "repo": "investment-analyst-toolkit",
       "generated_at": "2026-11-07",
       "version": "0.8.0",
-      "tests": 250
+      "tests": 338
     },
     "financial-research-analyst-agent": {
       "repo": "financial-research-analyst-agent",
@@ -23,7 +23,7 @@
     "nepali-capital-market-research": {
       "repo": "nepali-capital-market-research",
       "generated_at": "2026-11-07",
-      "scanner_tests": 108
+      "scanner_tests": 113
     },
     "equity-research-playbook": {
       "repo": "equity-research-playbook",
