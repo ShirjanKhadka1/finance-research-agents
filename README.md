@@ -57,7 +57,7 @@ plus the public workflow log plus dated notes under `status/failures/`.
 
 ## 🎨 The roster
 
-28 agents. `agents.json` is the machine-readable roster; this table
+36 agents. `agents.json` is the machine-readable roster; this table
 mirrors it. Generated counts: see `ops/status.json` (produced by
 `ops/generate_counts.py`, checked by `ops/check_numbers.py`).
 
@@ -91,8 +91,50 @@ mirrors it. Generated counts: see `ops/status.json` (produced by
 | 🧑‍💼 [NEPSE Trader](agents/nepse-trader.md) | NEPSE Trader step: debate into one gated hypothetical plan — research only, never an order | After the Bull/Bear debate, before the Risk team |
 | 🛡️ [NEPSE Risk Team](agents/nepse-risk-team.md) | NEPSE Risk team: Aggressive / Neutral / Conservative debate + joint verdict | After the Trader's plan, before the gate |
 | 🎯 [NEPSE Portfolio Manager](agents/nepse-portfolio-manager.md) | NEPSE Portfolio Manager step: reflections, debate, plan, risk verdict → publication gate | Last step: the publication gate, with the decision logged |
+| 🏦 [NEPSE Bank Analyst](agents/nepse-bank-analyst.md) | NEPSE banks: CAR, NPL, NIM, cost-to-income, CD ratio, provisioning cover | A NEPSE-listed bank needs a sector read in depth |
+| ⚡ [NEPSE Hydropower Analyst](agents/nepse-hydropower-analyst.md) | NEPSE hydropower: PPA, plant load factor, generation vs capacity, construction vs operating | A NEPSE-listed hydropower company needs a sector read in depth |
+| 🛡️ [NEPSE Insurance Analyst](agents/nepse-insurance-analyst.md) | NEPSE insurance: solvency margin, combined ratio, premium growth, claim ratio | A NEPSE-listed insurer needs a sector read in depth |
+| 🌱 [NEPSE Microfinance Analyst](agents/nepse-microfinance-analyst.md) | NEPSE microfinance: NPL, cost of funds, opex ratio, portfolio yield vs funding cost | A NEPSE-listed microfinance institution needs a sector read in depth |
+| 📈 [NEPSE Mutual Fund & NAV Analyst](agents/nepse-mutual-fund-nav-analyst.md) | NEPSE mutual funds: NAV per unit, premium/discount to NAV, expense ratio, holdings | A NEPSE-listed fund needs a NAV-and-discount read |
+| 🚀 [NEPSE IPO Analyst](agents/nepse-ipo-analyst.md) | NEPSE IPOs: prospectus, issue price vs book value, promoter holding, allotment, lock-in | An IPO or recent listing needs a prospectus read |
+| 🧾 [NEPSE Fees & Tax Analyst](agents/nepse-fees-and-tax-analyst.md) | NEPSE costs: broker slabs, SEBON fee, DP charge, CGT, circuit limits, settlement | Any cost, tax, or settlement question on a NEPSE trade |
+| ✍️ [NEPSE Content Writer](agents/nepse-content-writer.md) | Nepali & English research writing: plain language, sourced numbers, no value language | A completed study needs plain-language writing |
 
-Guide (not an agent, not counted in the 28): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 28 agents + 1 guide file.
+Guide (not an agent, not counted in the 36): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 36 agents + 1 guide file.
+
+
+## 🇳🇵 NEPSE sector agents (Engine 1.8, 2026-11-07)
+
+Eight new agents deepen the NEPSE Fundamentals sector guidance into one
+agent per sector or topic (see the roster above): Bank (CAR, NPL, NIM,
+cost-to-income, credit-deposit ratio, provisioning cover), Hydropower
+(PPA rate and years, plant load factor, generation vs capacity,
+construction vs operating), Insurance (solvency margin, combined ratio,
+premium growth, claim ratio, underwriting vs investment kept apart),
+Microfinance (NPL, cost of funds, operating expense ratio, portfolio
+yield vs funding cost), Mutual Fund & NAV (NAV per unit, premium/discount
+to NAV marked DERIVED, expense ratio, holdings, distributions as history
+only), IPO (prospectus first; grey-market numbers are never quoted),
+Fees & Tax (broker slabs, SEBON fee, DP charge, CGT by holding period,
+circuit ±15%, settlement T+2 — every figure from the user-supplied
+Nepal frictions of 28 Oct 2026, or UNKNOWN), and Content Writer
+(Nepali- and English-language plain-language write-ups of completed
+studies only, no value language).
+
+Four requested roles were checked against the live roster and NOT added
+as duplicates: corporate actions (nepse-corporate-actions-analyst),
+macro (nepse-macro-analyst), risk analyst (nepse-risk-team plus
+risk-stance-analyst), and orchestrator (research-orchestrator).
+
+Every new agent has a SKILL.md mirror under `skills/<slug>/SKILL.md`
+(same content, skill format; the agent file is canonical). The
+installer now covers five tools — Claude Code, GitHub Copilot, Cursor,
+Gemini CLI, Codex (`./scripts/install.sh --tool cursor|gemini|codex`)
+— and `./scripts/convert.sh` generates per-tool integration dirs
+(`integrations/<tool>/agents/`, plus `skills/` copies; Cursor gets a
+`.mdc` file carrying the agent's own description line). The agent-file
+template pattern is adapted from agency-agents (MIT, see
+`docs/SOURCES_MERGE_2026-11-07.md`); no agency-agents text was copied.
 
 ## 🎯 Runbooks — teams that work together
 
@@ -155,7 +197,7 @@ on 7 Nov 2026 (content merge approved by the owner; that repo is
 retained for history with a pointer to this pack). The four that were
 already here are byte-identical to the playbook's copies — no
 duplication remains. Templates are not agents: the pack stays
-28 agents + 8 templates.
+36 agents + 8 templates.
 
 `examples/bottlers-nepal-terai-initiation-example.md` is a filled
 initiation template for Bottlers Nepal (Terai) (BNT, NEPSE) —
