@@ -116,8 +116,8 @@ yield vs funding cost), Mutual Fund & NAV (NAV per unit, premium/discount
 to NAV marked DERIVED, expense ratio, holdings, distributions as history
 only), IPO (prospectus first; grey-market numbers are never quoted),
 Fees & Tax (broker slabs, SEBON fee, DP charge, CGT by holding period,
-circuit ±15%, settlement T+2 — every figure from the user-supplied
-Nepal frictions of 28 Oct 2026, or UNKNOWN), and Content Writer
+circuit 15% from 2026-04-20, 10% before; T+2 settlement, transition date
+unverified — every figure sourced, or UNKNOWN), and Content Writer
 (Nepali- and English-language plain-language write-ups of completed
 studies only, no value language).
 
@@ -185,6 +185,29 @@ settled after its horizon against realised return and alpha vs the
 NEPSE index (index source named, never invented), and scored on the
 public track record — which starts at **n=0, no calls settled yet**
 (see the toolkit's `docs/track-record.md`).
+
+## 🌍 Global rules-mode personas (companion toolkit)
+
+The world side of this pack is not NEPSE-only. The companion toolkit
+([`investment-analyst-toolkit`](https://github.com/ShirjanKhadka1/investment-analyst-toolkit),
+`toolkit/rules_mode.py` v1.4.0) carries a 5-persona market-agnostic
+rules-mode team that mirrors the NEPSE team's structure — deterministic
+rules over caller-supplied inputs, nothing fetched, nothing guessed,
+UNKNOWN for anything not supplied:
+
+- `us_large_cap_fundamentals` — US large-cap fundamentals (EDGAR XBRL metrics)
+- `etf_index` — ETF / index reads
+- `fx_macro` — FX / macro reads
+- `crypto` — crypto reads
+- `earnings` — earnings events
+
+These five personas live in the toolkit repo, not this one; this pack's
+own world-side agent is the World Market Researcher in the roster above.
+To run a full top-down study — world context first, then the home market,
+then the company — use
+[runbooks/macro-to-company.md](runbooks/macro-to-company.md)
+(World → Nepal → Investment → Reconciler → Financial → Valuation →
+Reality).
 
 ## 📝 Templates — 8, with a completeness checker
 
