@@ -23,7 +23,10 @@ set -euo pipefail
 OUT="integrations"
 AGENTS=()
 DRY_RUN=0
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# See install.sh: $0 may carry Windows backslashes; normalise before
+# dirname, or REPO_DIR lands in the caller's working directory.
+SCRIPT_PATH="${0//\\//}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 TOOLS="claude-code copilot cursor gemini codex"
 
@@ -55,9 +58,13 @@ else
 fi
 
 # A path that is not under the repo is refused: the converter only ever
-# writes inside the chosen out dir.
+# writes inside the chosen out dir. An absolute path is recognised in
+# POSIX form (/...) and in Windows form (C:/... or C:\...); a native
+# Windows path must not be mistaken for a relative one and prefixed
+# with the repo dir.
+OUT="${OUT//\\//}"
 case "$OUT" in
-  /*) OUT_DIR="$OUT" ;;
+  /*|[A-Za-z]:/*) OUT_DIR="$OUT" ;;
   *) OUT_DIR="$REPO_DIR/$OUT" ;;
 esac
 
