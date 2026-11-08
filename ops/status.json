@@ -8,6 +8,6 @@
     "WHEN-TO-USE.md"
   ],
   "generated_by": "ops/generate_counts.py (Round 3: file counts from disk)",
-  "generated_at": "2026-11-07",
+  "generated_at": "2026-11-08",
   "method": "agents counted as agents/*.md minus WHEN-TO-USE.md; runbooks/templates counted as *.md in their folders; agents.json entries counted from the file"
 }
