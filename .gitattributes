@@ -1,0 +1,6 @@
+# Shell scripts must keep LF endings on every checkout. Git for Windows
+# defaults to CRLF, and bash does not tolerate a carriage return: a CRLF
+# install.sh dies at `set -euo pipefail` and every variable assignment
+# gains a trailing \r, so `case "$TOOL"` never matches. LF here keeps the
+# scripts runnable under Git Bash on Windows runners.
+*.sh text eol=lf
