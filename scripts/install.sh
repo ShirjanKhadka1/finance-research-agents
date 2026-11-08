@@ -32,7 +32,13 @@ set -euo pipefail
 TOOL="claude-code"
 AGENTS=()
 DRY_RUN=0
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# $0 may carry Windows backslashes (a native path passed to Git Bash,
+# e.g. by pytest on a Windows runner). POSIX dirname treats '\' as a
+# plain character, so it would return '.' and REPO_DIR would point at
+# the caller's working directory instead of the repo. Normalise to
+# forward slashes first; a POSIX path is unchanged.
+SCRIPT_PATH="${0//\\//}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 while [ $# -gt 0 ]; do
@@ -50,6 +56,13 @@ while [ $# -gt 0 ]; do
     *) echo "Unknown option: $1" >&2; exit 1 ;;
   esac
 done
+
+# HOME can be unset when bash is launched from pwsh/pytest on Windows,
+# and `set -u` would abort on the DEST assignment below. Fall back to
+# the Windows profile dir, then normalise backslashes the same way as
+# $0 above so DEST is a POSIX path under Git Bash.
+HOME="${HOME:-${USERPROFILE:-}}"
+HOME="${HOME//\\//}"
 
 case "$TOOL" in
   claude-code) DEST="$HOME/.claude/agents" ;;
