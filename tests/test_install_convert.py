@@ -12,9 +12,18 @@ wrongly — every test then fails with "No such agent" (exit 1). The
 ``--out`` dir and HOME get the same treatment: convert.sh's
 absolute-path check only recognises '/'-prefixed paths. as_posix()
 is a no-op on Linux/macOS, so local behaviour is unchanged.
+
+Windows note (found 8 Nov 2026, Tests #7): bare `bash` on a
+windows-latest runner resolves to WSL's bash, and WSL has no distro
+installed there, so every invocation dies before the script runs
+('Windows Subsystem for Linux has no installed distributions').
+The tests therefore call Git Bash explicitly on Windows
+(C:\\Program Files\\Git\bin\bash.exe), which is on every runner.
 """
 
+import os
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -35,6 +44,19 @@ def _run(cmd, env=None):
                           env=env, check=False)
 
 
+def _bash():
+    """Bash to invoke: plain `bash` everywhere except Windows, where
+    bare `bash` is WSL bash with no distro installed (see module
+    docstring) — use Git Bash, which is on every windows runner."""
+    if sys.platform == "win32":
+        for candidate in (
+                r"C:\Program Files\Git\bin\bash.exe",
+                r"C:\Program Files\Git\usr\bin\bash.exe"):
+            if os.path.exists(candidate):
+                return candidate
+    return "bash"
+
+
 def _assert_ok(proc):
     """Fail with both streams: stderr alone hid the death point on
     the Windows runner (exit 1, empty stderr, stdout swallowed)."""
@@ -45,7 +67,7 @@ def _assert_ok(proc):
 
 @pytest.mark.parametrize("tool", TOOLS)
 def test_install_dry_run_names_right_dest(tool, tmp_path):
-    proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "install.sh").as_posix(),
                  "--tool", tool, "--agent", "nepse-bank-analyst", "--dry-run"])
     _assert_ok(proc)
     assert TOOLS[tool] in proc.stdout
@@ -57,7 +79,7 @@ def test_install_copies_one_agent_to_tool_dir(tool, tmp_path, monkeypatch):
     home = tmp_path / "home"
     home.mkdir()
     monkeypatch.setenv("HOME", home.as_posix())
-    proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "install.sh").as_posix(),
                  "--tool", tool, "--agent", "nepse-bank-analyst"])
     _assert_ok(proc)
     dest = home / TOOLS[tool] / "nepse-bank-analyst.md"
@@ -67,14 +89,14 @@ def test_install_copies_one_agent_to_tool_dir(tool, tmp_path, monkeypatch):
 
 
 def test_install_unknown_tool_fails():
-    proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "install.sh").as_posix(),
                  "--tool", "not-a-tool", "--dry-run"])
     assert proc.returncode != 0
     assert "Unknown tool" in proc.stderr
 
 
 def test_install_unknown_agent_fails():
-    proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "install.sh").as_posix(),
                  "--agent", "no-such-agent", "--dry-run"])
     assert proc.returncode != 0
     assert "No such agent" in proc.stderr
@@ -82,7 +104,7 @@ def test_install_unknown_agent_fails():
 
 def test_convert_places_files_per_tool(tmp_path):
     out = tmp_path / "integrations"
-    proc = _run(["bash", (ROOT / "scripts" / "convert.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "convert.sh").as_posix(),
                  "--out", out.as_posix(), "--agent", "nepse-bank-analyst"])
     _assert_ok(proc)
     for tool in CONVERT_TOOLS:
@@ -111,14 +133,14 @@ def test_convert_places_files_per_tool(tmp_path):
 
 def test_convert_skips_the_guide(tmp_path):
     out = tmp_path / "integrations"
-    proc = _run(["bash", (ROOT / "scripts" / "convert.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "convert.sh").as_posix(),
                  "--out", out.as_posix()])
     _assert_ok(proc)
     assert not list(out.rglob("*WHEN-TO-USE*"))
 
 
 def test_convert_unknown_agent_fails():
-    proc = _run(["bash", (ROOT / "scripts" / "convert.sh").as_posix(),
+    proc = _run([_bash(), (ROOT / "scripts" / "convert.sh").as_posix(),
                  "--out", "/tmp/never-created-by-this-test",
                  "--agent", "no-such-agent"])
     assert proc.returncode != 0
