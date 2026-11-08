@@ -1,0 +1,53 @@
+# =====================================================================
+# NOT DEPLOYED — STAGED FILE ONLY (Phase 4, 7 Nov 2026).
+# This workflow is NOT live on GitHub. It was prepared locally and has
+# NOT been pushed via the API: the token behind the API helper lacks
+# workflow scope, so an API push of a .github/workflows/ file would
+# fail with 403. The parent deploys it via the GitHub web UI (browser
+# route) and then confirms the file exists on main and the first run
+# is observed green (or red, triaged honestly).
+# Do NOT describe this workflow as deployed, running, or green until
+# the parent confirms that deployment and a run.
+#
+# TARGET:
+#   Repo:   ShirjanKhadka1/finance-research-agents
+#   Branch: main
+#   Path:   .github/workflows/test.yml   (NEW — this repo has no test
+#           workflow yet; check-numbers.yml and health.yml are separate)
+#
+# Shape follows ops/ci-template.yml: matrix pytest on Linux/macOS/
+# Windows x Python 3.10/3.11/3.12; quality job on ubuntu runs the
+# Phase 4 entry point `python scripts/qa.py` (tests, roster, counts,
+# licence, secret scan, link check). No smoke job: the pack has no CLI.
+# No ruff/mypy job: the pack is Markdown, and its helper scripts have
+# no ruff config (62 pre-existing stock-ruff errors — deferred, not a
+# gate). fetch-depth: 0 is deliberate: the secret gate scans
+# `git log -p`, and the default shallow checkout would make it vacuous.
+# =====================================================================
+name: Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install "pytest==9.2.0"
+      - run: python -m pytest tests/ -q
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/qa.py
