@@ -35,11 +35,19 @@ def _run(cmd, env=None):
                           env=env, check=False)
 
 
+def _assert_ok(proc):
+    """Fail with both streams: stderr alone hid the death point on
+    the Windows runner (exit 1, empty stderr, stdout swallowed)."""
+    assert proc.returncode == 0, (
+        "stderr:" + chr(10) + proc.stderr
+        + "stdout:" + chr(10) + proc.stdout)
+
+
 @pytest.mark.parametrize("tool", TOOLS)
 def test_install_dry_run_names_right_dest(tool, tmp_path):
     proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
                  "--tool", tool, "--agent", "nepse-bank-analyst", "--dry-run"])
-    assert proc.returncode == 0, proc.stderr
+    _assert_ok(proc)
     assert TOOLS[tool] in proc.stdout
     assert "nepse-bank-analyst.md" in proc.stdout
 
@@ -51,7 +59,7 @@ def test_install_copies_one_agent_to_tool_dir(tool, tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", home.as_posix())
     proc = _run(["bash", (ROOT / "scripts" / "install.sh").as_posix(),
                  "--tool", tool, "--agent", "nepse-bank-analyst"])
-    assert proc.returncode == 0, proc.stderr
+    _assert_ok(proc)
     dest = home / TOOLS[tool] / "nepse-bank-analyst.md"
     assert dest.is_file()
     assert dest.read_text(encoding="utf-8") == (
@@ -76,7 +84,7 @@ def test_convert_places_files_per_tool(tmp_path):
     out = tmp_path / "integrations"
     proc = _run(["bash", (ROOT / "scripts" / "convert.sh").as_posix(),
                  "--out", out.as_posix(), "--agent", "nepse-bank-analyst"])
-    assert proc.returncode == 0, proc.stderr
+    _assert_ok(proc)
     for tool in CONVERT_TOOLS:
         if tool == "cursor":
             agent_file = out / "cursor" / "agents" / "nepse-bank-analyst.mdc"
@@ -105,7 +113,7 @@ def test_convert_skips_the_guide(tmp_path):
     out = tmp_path / "integrations"
     proc = _run(["bash", (ROOT / "scripts" / "convert.sh").as_posix(),
                  "--out", out.as_posix()])
-    assert proc.returncode == 0, proc.stderr
+    _assert_ok(proc)
     assert not list(out.rglob("*WHEN-TO-USE*"))
 
 
