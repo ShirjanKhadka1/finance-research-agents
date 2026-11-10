@@ -1,4 +1,4 @@
-# Daily health check — 2026-11-09 08:47 UTC
+# Daily health check — 2026-11-10 08:55 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -7,7 +7,7 @@
 
 ## Overall: FAIL
 
-FAIL: 1 | UNKNOWN: 2 | PASS: 16
+FAIL: 1 | UNKNOWN: 0 | PASS: 18
 
 ## Checks
 
@@ -23,11 +23,11 @@ FAIL: 1 | UNKNOWN: 2 | PASS: 16
 | README counts: equity-research-playbook | PASS | README carries 6/6 matching evidence |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
 | workflow: finance-research-agents | PASS | no independent CI workflow by design; verification is this health report itself (roster, counts, links) |
-| workflow: investment-analyst-toolkit | PASS | latest completed run: pages build and deployment -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/42581839878) |
-| workflow: financial-research-analyst-agent | UNKNOWN | no completed non-skipped workflow run found |
-| workflow: nepali-capital-market-research | UNKNOWN | no completed non-skipped workflow run found |
-| data: freshness | PASS | latest run 20261109T075010Z is 1.0 hours old |
-| data: ledger | PASS | latest summary reports/daily/summary-20261109T075010Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
+| workflow: investment-analyst-toolkit | PASS | latest completed run: pages build and deployment -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/42780901262) |
+| workflow: financial-research-analyst-agent | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/42636545050) |
+| workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/42649283507) |
+| data: freshness | PASS | latest run 20261110T081254Z is 0.7 hours old |
+| data: ledger | PASS | latest summary reports/daily/summary-20261110T081254Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 89 internal link(s) checked, none missing (external links not checked: excluded, see report) |
 | security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
 | security config: financial-research-analyst-agent | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
