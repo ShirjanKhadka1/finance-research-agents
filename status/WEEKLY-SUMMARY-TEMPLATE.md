@@ -50,7 +50,7 @@ one only when the owner decides it; do not close one by assuming it.
    content exist (Phase 6). Publishing it to GitHub Pages is a
    separate step; no live docs site is claimed until it is seen.
 5. **Nepal friction re-checks** — before reliance on a real trade:
-   circuit limits (+15%/−15%, user-supplied 28 Oct 2026) against a
+   circuit limits (15% from 2026-04-20, 10% before; user-supplied 28 Oct 2026) against
    current NEPSE/SEBON notice; broker-58 T+1 example against that
    broker; CGT Gazette citation re-checked if rates change.
 6. **Scheduled workflow first run observation** — the Phase 3 toolkit

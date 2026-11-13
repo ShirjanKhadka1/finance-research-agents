@@ -207,8 +207,8 @@ downside that ignores these is incomplete.
 | SEBON fee | 0.015% |
 | DP charge | Rs 25 per scrip |
 | Capital gains tax | 5% if held ≤365 days; 3.75% if held >365 days |
-| Circuit limit | ±15% |
-| Settlement | T+2 (broker 58 offers T+1) |
+| Circuit limit | 15% from 2026-04-20, 10% before |
+| Settlement | T+2, transition date unverified (broker 58 offers T+1) |
 
 ## 7. Structured debate (Debate Analyst) — every argument answered or marked
 
@@ -290,7 +290,7 @@ Scenarios are analysis, not advice. None sizes a position.
 
 | Stance | Break path | Trigger (observable) | What it does NOT prove |
 |---|---|---|---|
-| **Risky** (optimistic assumptions wrong) | The unaudited recovery reverses: FY 2082/83 audited revenue/EBIT land near the depressed FY 2081/82 base, while all-current borrowings must be rolled in the same window; thin closes gap toward the ±15% circuit band on low volume, so friction costs (§6) dominate any exit. | The 40th annual report filing, or a quarterly filing, printing audited revenue/EBIT at or below the FY 2081/82 base. | It does not prove the business is unviable — only that the recovery thesis fails on audited numbers. |
+| **Risky** (optimistic assumptions wrong) | The unaudited recovery reverses: FY 2082/83 audited revenue/EBIT land near the depressed FY 2081/82 base, while all-current borrowings must be rolled in the same window; thin closes gap toward the circuit band (15% from 2026-04-20, 10% before) on low volume, so friction costs (§6) dominate any exit. | The 40th annual report filing, or a quarterly filing, printing audited revenue/EBIT at or below the FY 2081/82 base. | It does not prove the business is unviable — only that the recovery thesis fails on audited numbers. |
 | **Safe** (even cautious assumptions break) | Even granting the cash story, the price legs stay thin: closes continue to print on a handful of trades, BNL-style staleness spreads, and the ~Rs 81M gap is never reconciled — so no market-based multiple in this note can be tightened, whatever the audited outcome. | Two consecutive NEPSE sessions in which BNT prints on ≤5 trades, or the 40th annual report leaves the bridge gap unreconciled. | It does not prove the price is wrong — only that it is unmeasurable from these legs. |
 | **Neutral** (middle path, own failure modes) | Audited recovery confirms direction but not magnitude: earnings normalise part-way, the 763M provision resolves favourably but slowly, and multiples on normalised earnings land between the depressed-LTM 15.8x and the US 4.16x EV/Sales cross-check — leaving the "cheap vs fairly valued" question still open. | The 40th annual report resolving the provision with a stated figure, plus one audited quarter at a normalised margin. | It does not prove a value — this example builds no DCF and no valuation conclusion. |
 
@@ -376,7 +376,7 @@ publication.
   3.9%, inflation 3.1% → implied nominal GDP ~7.1%.
 - Nepal trading frictions: user-supplied set, 2026-10-28
   (broker slabs, SEBON 0.015%, DP Rs 25/scrip, CGT 5% / 3.75%,
-  circuit ±15%, T+2 with broker-58 T+1).
+  circuit 15% from 2026-04-20, 10% before; T+2 settlement, transition date unverified, with broker-58 T+1).
 - Pack method: `agents/ledger-controller.md`,
   `agents/debate-analyst.md`, `agents/risk-stance-analyst.md`,
   `runbooks/structured-debate.md` in this repo.

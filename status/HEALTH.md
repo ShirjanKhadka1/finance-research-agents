@@ -61,7 +61,7 @@ FAIL: 1 | UNKNOWN: 1 | PASS: 17
   schedule is a plan, not a proven fact, and freshness stays
   UNKNOWN.
 - Nepal friction re-checks before reliance on a real trade:
-  circuit limits (+15%/-15%, user-supplied 28 Oct 2026) against
+  circuit limits (15% from 2026-04-20, 10% before; user-supplied 28 Oct 2026) against
   a current NEPSE/SEBON notice; broker-58 T+1 example against
   that broker.
 - Private repos cannot be listed without a token, and that
