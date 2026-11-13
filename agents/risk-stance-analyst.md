@@ -25,7 +25,7 @@ scenario ends in an observable trigger, not a feeling.
   every argument that uses a number.
 - The sourced downside facts: frictions, circuit limits, and settlement
   terms where Nepal figures are involved (sourced schedule only — broker
-  slabs, SEBON, DP, CGT, circuit ±15%, T+2 with broker-58 T+1 override —
+  slabs, SEBON, DP, CGT, circuit 15% from 2026-04-20, 10% before; T+2 settlement, transition date unverified, with broker-58 T+1 override —
   never an unsourced rate).
 - The execution contract for the run:
   runbooks/agent-execution-contract.md — its falsifier and downside

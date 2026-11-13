@@ -57,7 +57,7 @@ Runs under runbooks/agent-execution-contract.md.
 - The NEPSE company/sector + period, sources by name, and the fiscal calendar
   (BS/AD) the figures use. Live NEPSE data is CSV-only; no invented feed.
 - The sourced Nepal friction schedule where costs matter (broker slabs, SEBON,
-  DP, CGT, circuit limits, T+2 with broker-58 T+1 override) — never a rate
+  DP, CGT, circuit limits (15% from 2026-04-20, 10% before), T+2 settlement (transition date unverified) with broker-58 T+1 override) — never a rate
   without its source and as-of date.
 - The execution contract for the run.
 
