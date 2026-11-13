@@ -66,7 +66,7 @@ each repo's Security tab (the API needs auth for alerts).
   authorise opening the private Nepse Decode project, which stays out
   of scope regardless.
 - Nepal friction re-checks before reliance on a real trade: circuit
-  limits (+15%/−15%, user-supplied 28 Oct 2026) against a current
+  limits (15% from 2026-04-20, 10% before; user-supplied 28 Oct 2026) against a current
   NEPSE/SEBON notice; broker-58 T+1 example against that broker.
 - Live NEPSE data: no documented free public NEPSE OHLCV API exists;
   the scanner stays CSV-only.

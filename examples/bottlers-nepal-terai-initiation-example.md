@@ -95,8 +95,8 @@ makes any market price a usable anchor at all.
   as like-for-like competitors — see the ledger's comparability note.
 - Regulation / policy that can change the story: UNKNOWN in this
   example, beyond the general Nepal-market frictions recorded
-  elsewhere in the programme (broker/SEBON/DP charges, circuit limits,
-  T+2 settlement). No specific regulation affecting BNT is asserted
+  elsewhere in the programme (broker/SEBON/DP charges, circuit limits (15% from 2026-04-20, 10% before),
+  T+2 settlement (transition date unverified)). No specific regulation affecting BNT is asserted
   here without a source.
 
 ## 4. Financials (source: 39th annual report, FY 2081/82, year ended 16 July 2025, via the 2026-10-16 ledger)

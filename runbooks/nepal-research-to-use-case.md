@@ -18,7 +18,7 @@ rule below travels with every proposal.)
    exchange stated as NEPSE on every ticker; fiscal calendar (BS/AD)
    stated; Nepal frictions applied where costs matter, from the sourced
    schedule only (broker slabs 0.36/0.33/0.31/0.27/0.24% min Rs 10,
-   SEBON 0.015%, DP Rs 25, CGT 5%/3.75%, circuit ±15%, T+2 with broker-58
+   SEBON 0.015%, DP Rs 25, CGT 5%/3.75%, circuit 15% from 2026-04-20, 10% before; T+2 settlement, transition date unverified, with broker-58
    T+1 override); intraday described as UPCOMING, never live; data
    CSV-only, no invented live feed.
 3. **Ledger freeze.** Ledger Controller certifies the research inputs
