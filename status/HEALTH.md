@@ -1,4 +1,4 @@
-# Daily health check — 2026-11-13 08:51 UTC
+# Daily health check — 2026-11-14 08:14 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -15,7 +15,7 @@ FAIL: 1 | UNKNOWN: 1 | PASS: 17
 |---|---|---|
 | roster | PASS | PASS: roster consistent (agents, runbooks, README tables all match). |
 | README counts: finance-research-agents | PASS | no counts in README, none in evidence (Markdown repo) |
-| README counts: investment-analyst-toolkit | FAIL | evidence says 250/250 but README carries [(614, 614)] |
+| README counts: investment-analyst-toolkit | FAIL | evidence says 250/250 but README carries [(740, 740)] |
 | README counts: financial-research-analyst-agent | PASS | README carries 49/49 matching evidence |
 | README counts: nepali-capital-market-research | PASS | README carries 113/113 matching evidence |
 | README counts: nepal-market-research | PASS | no counts in README, none in evidence (Markdown repo) |
@@ -23,11 +23,11 @@ FAIL: 1 | UNKNOWN: 1 | PASS: 17
 | README counts: equity-research-playbook | PASS | README carries 6/6 matching evidence |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
 | workflow: finance-research-agents | PASS | no independent CI workflow by design; verification is this health report itself (roster, counts, links) |
-| workflow: investment-analyst-toolkit | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/43391733493) |
+| workflow: investment-analyst-toolkit | PASS | latest completed run: Check numbers -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/43571532541) |
 | workflow: financial-research-analyst-agent | UNKNOWN | no completed non-skipped workflow run found |
 | workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/42649283507) |
-| data: freshness | PASS | latest run 20261113T074454Z is 1.1 hours old |
-| data: ledger | PASS | latest summary reports/daily/summary-20261113T074454Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
+| data: freshness | PASS | latest run 20261114T073013Z is 0.7 hours old |
+| data: ledger | PASS | latest summary reports/daily/summary-20261114T073013Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 90 internal link(s) checked, none missing (external links not checked: excluded, see report) |
 | security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
 | security config: financial-research-analyst-agent | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
@@ -61,7 +61,7 @@ FAIL: 1 | UNKNOWN: 1 | PASS: 17
   schedule is a plan, not a proven fact, and freshness stays
   UNKNOWN.
 - Nepal friction re-checks before reliance on a real trade:
-  circuit limits (15% from 2026-04-20, 10% before; user-supplied 28 Oct 2026) against
+  circuit limits (+15%/-15%, user-supplied 28 Oct 2026) against
   a current NEPSE/SEBON notice; broker-58 T+1 example against
   that broker.
 - Private repos cannot be listed without a token, and that
