@@ -1,4 +1,4 @@
-# Daily health check — 2026-11-16 08:42 UTC
+# Daily health check — 2026-11-17 09:50 UTC
 
 > Research only. Not investment advice. This report is generated,
 > not hand-written. A value is only as good as its evidence label:
@@ -7,7 +7,7 @@
 
 ## Overall: FAIL
 
-FAIL: 1 | UNKNOWN: 1 | PASS: 17
+FAIL: 1 | UNKNOWN: 0 | PASS: 18
 
 ## Checks
 
@@ -23,11 +23,11 @@ FAIL: 1 | UNKNOWN: 1 | PASS: 17
 | README counts: equity-research-playbook | PASS | README carries 6/6 matching evidence |
 | README counts: ShirjanKhadka1 | PASS | no counts in README, none in evidence (Markdown repo) |
 | workflow: finance-research-agents | PASS | no independent CI workflow by design; verification is this health report itself (roster, counts, links) |
-| workflow: investment-analyst-toolkit | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/43827841346) |
-| workflow: financial-research-analyst-agent | UNKNOWN | no completed non-skipped workflow run found |
-| workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/42649283507) |
-| data: freshness | PASS | latest run 20261116T074941Z is 0.9 hours old |
-| data: ledger | PASS | latest summary reports/daily/summary-20261116T074941Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
+| workflow: investment-analyst-toolkit | PASS | latest completed run: pages build and deployment -> success (https://github.com/ShirjanKhadka1/investment-analyst-toolkit/actions/runs/44051280642) |
+| workflow: financial-research-analyst-agent | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/financial-research-analyst-agent/actions/runs/43883416531) |
+| workflow: nepali-capital-market-research | PASS | latest completed run: CodeQL -> success (https://github.com/ShirjanKhadka1/nepali-capital-market-research/actions/runs/43896892409) |
+| data: freshness | PASS | latest run 20261117T085804Z is 0.9 hours old |
+| data: ledger | PASS | latest summary reports/daily/summary-20261117T085804Z.json parses; 2 symbol(s) fresh, accuracy stated per symbol |
 | internal links | PASS | 90 internal link(s) checked, none missing (external links not checked: excluded, see report) |
 | security config: investment-analyst-toolkit | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
 | security config: financial-research-analyst-agent | PASS | codeql.yml + dependabot.yml present; actual enablement in GitHub settings is TO VERIFY in each repo's Security tab (API needs auth) |
