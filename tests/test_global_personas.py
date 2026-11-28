@@ -44,12 +44,17 @@ def _find_rules_mode():
     checkout of investment-analyst-toolkit next to this repo."""
     env = os.environ.get("TOOLKIT_RULES_MODE")
     candidates = [Path(env)] if env else []
-    candidates += [
-        ROOT.parents[1] / "investment-analyst-toolkit" / "toolkit" / "rules_mode.py",
-        ROOT.parents[2] / "investment-analyst-toolkit" / "toolkit" / "rules_mode.py",
+    # A shallow checkout (e.g. /tmp/<repo>) has fewer than 3 parents;
+    # index parents only when they exist, else the list build itself
+    # crashes with IndexError before any candidate is checked.
+    for depth in (1, 2):
+        if len(ROOT.parents) > depth:
+            candidates.append(
+                ROOT.parents[depth] / "investment-analyst-toolkit"
+                / "toolkit" / "rules_mode.py")
+    candidates.append(
         Path.home() / "workspace" / "github-repos"
-        / "investment-analyst-toolkit" / "toolkit" / "rules_mode.py",
-    ]
+        / "investment-analyst-toolkit" / "toolkit" / "rules_mode.py")
     for path in candidates:
         if path.is_file():
             return path
