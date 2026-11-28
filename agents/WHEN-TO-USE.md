@@ -1,7 +1,7 @@
 # When to use which agent
 
 **This file is a guide, not an agent.** It exists to cut the overlap
-complaint: for each of the 36 agents, one line stating when to use it
+complaint: for each of the 41 agents, one line stating when to use it
 and how it differs from its nearest neighbour. Scopes below are taken
 from each agent file's own frontmatter and mission — no capability
 has been added here. If this guide and an agent file disagree, the
@@ -11,7 +11,7 @@ agent file wins.
 > (`ops/check_roster.py`) counts every `.md` file in `agents/`, so
 > this guide file is listed in `agents.json` and linked in the README
 > only so that unmodified check still passes. It is **not** a 37th
-> agent. The pack has **36 agents** plus this 1 guide file, and
+> agent. The pack has **41 agents** plus this 1 guide file, and
 > **12 runbooks**. See the note under the README roster table.
 
 | Agent | Use it when… (vs its nearest neighbour) |
@@ -52,6 +52,11 @@ agent file wins.
 | [NEPSE IPO Analyst](nepse-ipo-analyst.md) | You need An IPO or a recent listing needs a prospectus read before any price read exists — vs NEPSE Fundamentals Analyst: Fundamentals reads filed operating history, IPO reads the prospectus and the issue terms — a company with no listing history has no price read. |
 | [NEPSE Fees & Tax Analyst](nepse-fees-and-tax-analyst.md) | You need Any cost, tax, or settlement question on a NEPSE trade needs sourced figures, not remembered ones — vs NEPSE Trader: the Trader builds the hypothetical plan, this agent prices what the plan would cost and when it would settle — it never sizes or approves the plan. |
 | [NEPSE Content Writer](nepse-content-writer.md) | You need A completed study needs writing a general reader can follow, in Nepali or English — vs Nepal Market Researcher: the Researcher produces the sourced study, the Writer turns it into readable prose — the Writer never adds a number the study does not contain. |
+| [US Large-Cap Fundamentals](us-large-cap-fundamentals.md) | You need A US large-cap company needs a filed-numbers read (revenue growth, margins, leverage, ROIC) from EDGAR — vs Financial Analyst: Financial reads any company's statements, this agent owns the EDGAR fundamentals metrics and their discussion flags. |
+| [ETF / Index](etf-index.md) | You need An ETF or index fund needs a tracking-and-cost read (expense, tracking error, premium/discount, ETF vs index) — vs Portfolio & Forecast Analyst: Portfolio forecasts and models, this agent reads the fund against its own benchmark over the past year only. |
+| [FX / Macro](fx-macro.md) | You need A currency pair needs a rates-and-regime read (policy rates, inflation, the move that already happened) — vs World Market Researcher: World maps regimes across markets, this agent owns one pair's rates, differential, and move. |
+| [Crypto](crypto.md) | You need A crypto asset needs a sourced market-data read (price, market cap, volume, drawdown, volatility, supply) — vs any other analyst: no other agent reads crypto, and this one never predicts a price. |
+| [Earnings](earnings.md) | You need An earnings event needs a reported-vs-expected read, with the surprise computed only when both sides are sourced — vs Financial Analyst: Financial reads the statements behind the quarter, Earnings owns the event itself — a beat says nothing about the next quarter. |
 
 ## The overlap rule in one paragraph
 

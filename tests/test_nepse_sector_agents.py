@@ -134,21 +134,21 @@ def test_requested_role_not_duplicated(slug):
         f"no skill mirror for skipped role {slug}")
 
 
-def test_roster_counts_36_agents():
+def test_roster_counts_41_agents():
     disk = [f for f in (ROOT / "agents").glob("*.md") if f.name != "WHEN-TO-USE.md"]
-    assert len(disk) == 36, f"agents on disk: {len(disk)}, want 36"
+    assert len(disk) == 41, f"agents on disk: {len(disk)}, want 41"
     roster = json.loads((ROOT / "agents.json").read_text(encoding="utf-8"))
-    assert len(roster["agents"]) == 37, "agents.json: 36 agents + 1 guide"
+    assert len(roster["agents"]) == 42, "agents.json: 41 agents + 1 guide"
     for slug in NEW_AGENTS:
         assert any(a["slug"] == slug for a in roster["agents"]), slug
     status = json.loads((ROOT / "ops" / "status.json").read_text(encoding="utf-8"))
-    assert status["agents"] == 36
-    assert status["agents_json_entries"] == 37
+    assert status["agents"] == 41
+    assert status["agents_json_entries"] == 42
 
 
 def test_readme_and_guide_list_new_agents():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "36 agents" in readme
+    assert "41 agents" in readme
     guide = (ROOT / "agents" / "WHEN-TO-USE.md").read_text(encoding="utf-8")
     for slug in NEW_AGENTS:
         assert f"(agents/{slug}.md)" in readme, f"README missing {slug}"

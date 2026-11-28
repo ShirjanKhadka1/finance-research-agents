@@ -57,7 +57,7 @@ plus the public workflow log plus dated notes under `status/failures/`.
 
 ## 🎨 The roster
 
-36 agents. `agents.json` is the machine-readable roster; this table
+41 agents. `agents.json` is the machine-readable roster; this table
 mirrors it. Generated counts: see `ops/status.json` (produced by
 `ops/generate_counts.py`, checked by `ops/check_numbers.py`).
 
@@ -99,8 +99,13 @@ mirrors it. Generated counts: see `ops/status.json` (produced by
 | 🚀 [NEPSE IPO Analyst](agents/nepse-ipo-analyst.md) | NEPSE IPOs: prospectus, issue price vs book value, promoter holding, allotment, lock-in | An IPO or recent listing needs a prospectus read |
 | 🧾 [NEPSE Fees & Tax Analyst](agents/nepse-fees-and-tax-analyst.md) | NEPSE costs: broker slabs, SEBON fee, DP charge, CGT, circuit limits, settlement | Any cost, tax, or settlement question on a NEPSE trade |
 | ✍️ [NEPSE Content Writer](agents/nepse-content-writer.md) | Nepali & English research writing: plain language, sourced numbers, no value language | A completed study needs plain-language writing |
+| 🇺🇸 [US Large-Cap Fundamentals](agents/us-large-cap-fundamentals.md) | US large-cap fundamentals: revenue growth, net margin, FCF margin, debt/equity, interest coverage, ROIC | A US large-cap company needs a filed-numbers read in depth |
+| 📈 [ETF / Index](agents/etf-index.md) | ETF/index: tracking, expense, holdings concentration, index vs benchmark | An ETF or index fund needs a tracking-and-cost read |
+| 💱 [FX / Macro](agents/fx-macro.md) | FX/macro: policy rates, inflation, dollar regime, cross-border flows | A currency pair needs a rates-and-regime read |
+| ₿ [Crypto](agents/crypto.md) | Crypto: price, market cap, volume, drawdown, volatility, supply — no price predictions | A crypto asset needs a sourced market-data read, never a price prediction |
+| 📣 [Earnings](agents/earnings.md) | Earnings: reported vs expected only when both sourced, surprises describe reported quarters only | An earnings event needs a reported-vs-expected read |
 
-Guide (not an agent, not counted in the 36): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 36 agents + 1 guide file.
+Guide (not an agent, not counted in the 41): [When to use which agent](agents/WHEN-TO-USE.md) — one line per agent on when to use it vs its nearest neighbour. It is listed in `agents.json` only because the roster check counts every `.md` file in `agents/`; the pack remains 41 agents + 1 guide file.
 
 
 ## 🇳🇵 NEPSE sector agents (Engine 1.8, 2026-11-07)
@@ -220,7 +225,7 @@ on 7 Nov 2026 (content merge approved by the owner; that repo is
 retained for history with a pointer to this pack). The four that were
 already here are byte-identical to the playbook's copies — no
 duplication remains. Templates are not agents: the pack stays
-36 agents + 8 templates.
+41 agents + 8 templates.
 
 `examples/bottlers-nepal-terai-initiation-example.md` is a filled
 initiation template for Bottlers Nepal (Terai) (BNT, NEPSE) —

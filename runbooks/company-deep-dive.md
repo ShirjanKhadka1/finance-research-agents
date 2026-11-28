@@ -31,6 +31,13 @@ save time — a skipped forensic pass is how a bad thesis survives.
 - Output: fixes list, line by line. Apply the fixes. Re-run this step if a
   fix changed a number.
 
+## Step 6 — Dossier pipeline
+- The dossier pipeline (investment-analyst-toolkit, `toolkit/dossier.py`)
+  executes this runbook from injected data. The Reality Checker gate is
+  the 9.2 groundedness checker — every number must trace to a tool
+  output, or the dossier is blocked — plus the claim and logic audits.
+  A dossier that fails is labelled In progress.
+
 ## Done when
 Thesis + financials + risks with triggers + downside + falsifier + open
 questions are all present, every number is sourced, and the Reality Checker

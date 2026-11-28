@@ -181,9 +181,34 @@
       "specialty": "Nepali & English research writing: plain language, sourced numbers, no value language"
     },
     {
+      "file": "agents/us-large-cap-fundamentals.md",
+      "slug": "us-large-cap-fundamentals",
+      "specialty": "US large-cap fundamentals: revenue growth, net margin, FCF margin, debt/equity, interest coverage, ROIC"
+    },
+    {
+      "file": "agents/etf-index.md",
+      "slug": "etf-index",
+      "specialty": "ETF/index: tracking, expense, holdings concentration, index vs benchmark"
+    },
+    {
+      "file": "agents/fx-macro.md",
+      "slug": "fx-macro",
+      "specialty": "FX/macro: policy rates, inflation, dollar regime, cross-border flows"
+    },
+    {
+      "file": "agents/crypto.md",
+      "slug": "crypto",
+      "specialty": "Crypto: price, market cap, volume, drawdown, volatility, supply \u2014 no price predictions"
+    },
+    {
+      "file": "agents/earnings.md",
+      "slug": "earnings",
+      "specialty": "Earnings: reported vs expected only when both sourced, surprises describe reported quarters only"
+    },
+    {
       "file": "agents/WHEN-TO-USE.md",
       "slug": "when-to-use-guide",
-      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 36 agents plus this 1 guide file)"
+      "specialty": "GUIDE, NOT AN AGENT: when to use each agent vs its nearest neighbour (listed here only because the roster check counts every .md file in agents/; the pack has 41 agents plus this 1 guide file)"
     }
   ],
   "licence": "MIT",
